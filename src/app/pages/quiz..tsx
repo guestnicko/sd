@@ -27,7 +27,7 @@ interface Question {
   question: string;
   answers: string[];
   correctAnswer: number;
-  difficulty: "Easy" | "Medium" | "Hard";
+  difficulty: string;
   points: number;
 }
 
@@ -91,238 +91,27 @@ const HORSES: Horse[] = [
   },
 ];
 
-const QUESTIONS: Question[] = [
-  // Science Questions
-  {
-    id: 1,
-    category: "Science",
-    question: "Who is known as the father of physics?",
-    answers: [
-      "Albert Einstein",
-      "Isaac Newton",
-      "Galileo Galilei",
-      "Nikola Tesla",
-    ],
-    correctAnswer: 1,
-    difficulty: "Medium",
-    points: 20,
-  },
-  {
-    id: 2,
-    category: "Science",
-    question: "What is the chemical symbol for gold?",
-    answers: ["Go", "Au", "Ag", "Gd"],
-    correctAnswer: 1,
-    difficulty: "Easy",
-    points: 15,
-  },
-  {
-    id: 3,
-    category: "Science",
-    question: "How many bones are there in an adult human body?",
-    answers: ["196", "206", "216", "226"],
-    correctAnswer: 1,
-    difficulty: "Hard",
-    points: 30,
-  },
-  {
-    id: 4,
-    category: "Science",
-    question: "What planet is known as the Red Planet?",
-    answers: ["Venus", "Mars", "Jupiter", "Saturn"],
-    correctAnswer: 1,
-    difficulty: "Easy",
-    points: 15,
-  },
-  {
-    id: 5,
-    category: "Science",
-    question: "What is the speed of light in vacuum?",
-    answers: ["300,000 km/s", "299,792,458 m/s", "186,000 mph", "150,000 km/s"],
-    correctAnswer: 1,
-    difficulty: "Hard",
-    points: 30,
-  },
-
-  // History Questions
-  {
-    id: 6,
-    category: "History",
-    question: "In which year did World War II end?",
-    answers: ["1944", "1945", "1946", "1947"],
-    correctAnswer: 1,
-    difficulty: "Medium",
-    points: 20,
-  },
-  {
-    id: 7,
-    category: "History",
-    question: "Who was the first President of the United States?",
-    answers: [
-      "George Washington",
-      "Thomas Jefferson",
-      "John Adams",
-      "Benjamin Franklin",
-    ],
-    correctAnswer: 0,
-    difficulty: "Easy",
-    points: 15,
-  },
-  {
-    id: 8,
-    category: "History",
-    question: "Which ancient wonder of the world was located in Alexandria?",
-    answers: [
-      "Hanging Gardens",
-      "Lighthouse of Alexandria",
-      "Colossus of Rhodes",
-      "Statue of Zeus",
-    ],
-    correctAnswer: 1,
-    difficulty: "Hard",
-    points: 30,
-  },
-
-  // Geography Questions
-  {
-    id: 9,
-    category: "Geography",
-    question: "What is the capital of Australia?",
-    answers: ["Sydney", "Canberra", "Melbourne", "Brisbane"],
-    correctAnswer: 1,
-    difficulty: "Medium",
-    points: 20,
-  },
-  {
-    id: 10,
-    category: "Geography",
-    question: "Which is the longest river in the world?",
-    answers: [
-      "Amazon River",
-      "Nile River",
-      "Mississippi River",
-      "Yangtze River",
-    ],
-    correctAnswer: 1,
-    difficulty: "Medium",
-    points: 20,
-  },
-  {
-    id: 11,
-    category: "Geography",
-    question: "How many continents are there?",
-    answers: ["5", "6", "7", "8"],
-    correctAnswer: 2,
-    difficulty: "Easy",
-    points: 15,
-  },
-
-  // Sports Questions
-  {
-    id: 12,
-    category: "Sports",
-    question: "How many players are on a basketball team on the court at once?",
-    answers: ["4", "5", "6", "7"],
-    correctAnswer: 1,
-    difficulty: "Easy",
-    points: 15,
-  },
-  {
-    id: 13,
-    category: "Sports",
-    question: "In which sport would you perform a slam dunk?",
-    answers: ["Volleyball", "Basketball", "Tennis", "Football"],
-    correctAnswer: 1,
-    difficulty: "Easy",
-    points: 15,
-  },
-  {
-    id: 14,
-    category: "Sports",
-    question: "Which country has won the most FIFA World Cups?",
-    answers: ["Germany", "Brazil", "Argentina", "Italy"],
-    correctAnswer: 1,
-    difficulty: "Medium",
-    points: 20,
-  },
-
-  // Technology Questions
-  {
-    id: 15,
-    category: "Technology",
-    question: 'What does "CPU" stand for?',
-    answers: [
-      "Computer Processing Unit",
-      "Central Processing Unit",
-      "Core Processing Unit",
-      "Central Program Unit",
-    ],
-    correctAnswer: 1,
-    difficulty: "Easy",
-    points: 15,
-  },
-  {
-    id: 16,
-    category: "Technology",
-    question: "Who founded Microsoft?",
-    answers: ["Steve Jobs", "Bill Gates", "Mark Zuckerberg", "Larry Page"],
-    correctAnswer: 1,
-    difficulty: "Medium",
-    points: 20,
-  },
-  {
-    id: 17,
-    category: "Technology",
-    question: 'What does "AI" stand for in technology?',
-    answers: [
-      "Advanced Intelligence",
-      "Artificial Intelligence",
-      "Automated Intelligence",
-      "Applied Intelligence",
-    ],
-    correctAnswer: 1,
-    difficulty: "Easy",
-    points: 15,
-  },
-
-  // Mathematics Questions
-  {
-    id: 18,
-    category: "Mathematics",
-    question: "What is the value of π (pi) approximately?",
-    answers: ["2.14", "3.14", "4.14", "5.14"],
-    correctAnswer: 1,
-    difficulty: "Easy",
-    points: 15,
-  },
-  {
-    id: 19,
-    category: "Mathematics",
-    question: "What is 12 × 12?",
-    answers: ["124", "144", "154", "164"],
-    correctAnswer: 1,
-    difficulty: "Easy",
-    points: 15,
-  },
-  {
-    id: 20,
-    category: "Mathematics",
-    question: "What is the square root of 64?",
-    answers: ["6", "8", "10", "12"],
-    correctAnswer: 1,
-    difficulty: "Medium",
-    points: 20,
-  },
-];
-
 type MainMenuProps = {
   onStart: (state: "menu" | "quiz" | "category") => void;
 };
+type QuizCategory = {
+  onSelect: (category: "Science" | "Math" | "History" | "exit") => void;
+};
+type GameState = "menu" | "quiz" | "category";
 
-export default function QuizGame({ onStart }: MainMenuProps) {
+type QuizProps = {
+  questions: Question[]; // ✅ now correctly typed
+  onExit: (state: GameState) => void; // ✅ parent callback
+};
+export default function QuizGame({ onExit, questions }: QuizProps) {
   const handleClick = () => {
-    onStart("menu");
+    onExit("menu");
   };
+  const [QUESTIONS, setQuestions] = useState<Question[]>(questions);
+
+  if (questions) {
+  }
+
   useEffect(() => {
     const initializeFarcaster = async () => {
       try {

@@ -7,13 +7,31 @@ import { sdk } from "@farcaster/miniapp-sdk";
 import QuizGame from "./pages/quiz.";
 import MainMenu from "./pages/main_menu";
 import CategoryMenu from "./pages/choose_category";
+import easy_science from "./questions/science/easy_science.json";
+import easy_math from "./questions/math/easy_math.json";
+import easy_history from "./questions/history/easy_history.json";
 
 type GameState = "menu" | "quiz" | "category";
 type QuizCategory = "Science" | "Math" | "History" | "exit";
+interface Question {
+  id: number;
+  category: string;
+  question: string;
+  answers: string[];
+  correctAnswer: number;
+  difficulty: string;
+  points: number;
+}
 
 export default function QuizRacingGame(): JSX.Element {
   const [gameState, setGameState] = useState<GameState>("menu");
   const [quizCategory, setQuizCategory] = useState<QuizCategory>("Science");
+
+  const questionBank: Record<string, Question[]> = {
+    Science: easy_science,
+    Math: easy_math,
+    History: easy_history,
+  };
 
   useEffect(() => {
     const initializeFarcaster = async () => {
@@ -155,7 +173,10 @@ export default function QuizRacingGame(): JSX.Element {
           <MainMenu onStart={(newState) => setGameState(newState)} />
         )}
         {gameState === "quiz" && (
-          <QuizGame onStart={(newState) => setGameState(newState)} />
+          <QuizGame
+            questions={questionBank[quizCategory]}
+            onExit={(state) => setGameState(state)}
+          />
         )}
         {gameState === "category" && (
           <CategoryMenu

@@ -6,9 +6,6 @@ import {
   CardTitle,
 } from "../components/ui/card";
 
-type MainMenuProps = {
-  onStart: (state: "menu" | "quiz" | "category") => void;
-};
 type CategoryMenuProps = {
   onSelect: (category: "Science" | "Math" | "History" | "exit") => void;
 };

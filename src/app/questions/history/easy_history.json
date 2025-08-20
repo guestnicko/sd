@@ -1,0 +1,232 @@
+[
+  {
+    "id": 1,
+    "category": "World History",
+    "question": "Who was the first President of the United States?",
+    "answers": [
+      "George Washington",
+      "Abraham Lincoln",
+      "Thomas Jefferson",
+      "John Adams"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "Easy",
+    "points": 15
+  },
+  {
+    "id": 2,
+    "category": "World History",
+    "question": "In which country did the ancient civilization of the Pharaohs develop?",
+    "answers": ["Greece", "China", "Egypt", "Rome"],
+    "correctAnswer": 2,
+    "difficulty": "Easy",
+    "points": 15
+  },
+  {
+    "id": 3,
+    "category": "World History",
+    "question": "What wall divided East and West Berlin from 1961 to 1989?",
+    "answers": [
+      "Great Wall of Berlin",
+      "Berlin Wall",
+      "Cold War Wall",
+      "Iron Curtain"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "Easy",
+    "points": 15
+  },
+  {
+    "id": 4,
+    "category": "World History",
+    "question": "Who was known as the 'Maid of Orléans' in French history?",
+    "answers": [
+      "Marie Curie",
+      "Joan of Arc",
+      "Catherine de Medici",
+      "Eleanor of Aquitaine"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "Easy",
+    "points": 15
+  },
+  {
+    "id": 5,
+    "category": "World History",
+    "question": "Which country built the Great Wall?",
+    "answers": ["Japan", "China", "India", "Mongolia"],
+    "correctAnswer": 1,
+    "difficulty": "Easy",
+    "points": 15
+  },
+  {
+    "id": 6,
+    "category": "World History",
+    "question": "What year did World War II end?",
+    "answers": ["1945", "1939", "1918", "1950"],
+    "correctAnswer": 0,
+    "difficulty": "Easy",
+    "points": 15
+  },
+  {
+    "id": 7,
+    "category": "World History",
+    "question": "Who was the famous queen of Ancient Egypt known for her beauty?",
+    "answers": ["Nefertiti", "Cleopatra", "Hatshepsut", "Isis"],
+    "correctAnswer": 1,
+    "difficulty": "Easy",
+    "points": 15
+  },
+  {
+    "id": 8,
+    "category": "World History",
+    "question": "Which empire was ruled by Julius Caesar?",
+    "answers": [
+      "Greek Empire",
+      "Roman Empire",
+      "Ottoman Empire",
+      "Mongol Empire"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "Easy",
+    "points": 15
+  },
+  {
+    "id": 9,
+    "category": "World History",
+    "question": "What was the ship on which the Pilgrims traveled to America in 1620?",
+    "answers": ["Santa Maria", "Mayflower", "Endeavour", "Victoria"],
+    "correctAnswer": 1,
+    "difficulty": "Easy",
+    "points": 15
+  },
+  {
+    "id": 10,
+    "category": "World History",
+    "question": "Who was the first man to step on the moon in 1969?",
+    "answers": [
+      "Yuri Gagarin",
+      "Buzz Aldrin",
+      "Neil Armstrong",
+      "Michael Collins"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "Easy",
+    "points": 15
+  },
+  {
+    "id": 11,
+    "category": "World History",
+    "question": "Which country gifted the Statue of Liberty to the United States?",
+    "answers": ["France", "United Kingdom", "Spain", "Germany"],
+    "correctAnswer": 0,
+    "difficulty": "Easy",
+    "points": 15
+  },
+  {
+    "id": 12,
+    "category": "World History",
+    "question": "The Cold War was mainly between which two superpowers?",
+    "answers": [
+      "USA and Germany",
+      "USA and USSR",
+      "USA and Japan",
+      "USA and China"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "Easy",
+    "points": 15
+  },
+  {
+    "id": 13,
+    "category": "World History",
+    "question": "Who discovered America in 1492?",
+    "answers": [
+      "Christopher Columbus",
+      "Vasco da Gama",
+      "Ferdinand Magellan",
+      "Leif Erikson"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "Easy",
+    "points": 15
+  },
+  {
+    "id": 14,
+    "category": "World History",
+    "question": "Which war was fought between the North and South regions in the United States?",
+    "answers": [
+      "World War I",
+      "American Revolution",
+      "American Civil War",
+      "War of 1812"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "Easy",
+    "points": 15
+  },
+  {
+    "id": 15,
+    "category": "World History",
+    "question": "Who was the famous leader of the Indian independence movement known for nonviolent resistance?",
+    "answers": [
+      "Mahatma Gandhi",
+      "Jawaharlal Nehru",
+      "Subhas Chandra Bose",
+      "Indira Gandhi"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "Easy",
+    "points": 15
+  },
+  {
+    "id": 16,
+    "category": "World History",
+    "question": "What empire was ruled by Genghis Khan?",
+    "answers": [
+      "Ottoman Empire",
+      "Mongol Empire",
+      "Roman Empire",
+      "Byzantine Empire"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "Easy",
+    "points": 15
+  },
+  {
+    "id": 17,
+    "category": "World History",
+    "question": "The ancient Olympic Games originated in which country?",
+    "answers": ["Rome", "Egypt", "Greece", "Persia"],
+    "correctAnswer": 2,
+    "difficulty": "Easy",
+    "points": 15
+  },
+  {
+    "id": 18,
+    "category": "World History",
+    "question": "Who painted the Mona Lisa?",
+    "answers": ["Leonardo da Vinci", "Michelangelo", "Raphael", "Donatello"],
+    "correctAnswer": 0,
+    "difficulty": "Easy",
+    "points": 15
+  },
+  {
+    "id": 19,
+    "category": "World History",
+    "question": "What was the name of the trade route that connected China to Europe?",
+    "answers": ["Spice Route", "Silk Road", "Tea Trail", "Amber Road"],
+    "correctAnswer": 1,
+    "difficulty": "Easy",
+    "points": 15
+  },
+  {
+    "id": 20,
+    "category": "World History",
+    "question": "Which country was ruled by Adolf Hitler during World War II?",
+    "answers": ["Italy", "Germany", "Austria", "Poland"],
+    "correctAnswer": 1,
+    "difficulty": "Easy",
+    "points": 15
+  }
+]

@@ -1,0 +1,187 @@
+[
+  {
+    "id": 1,
+    "category": "Science",
+    "question": "What is the chemical symbol for gold?",
+    "answers": ["Gd", "Au", "Ag", "Go"],
+    "correctAnswer": 1,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 2,
+    "category": "Science",
+    "question": "Which planet has the largest number of moons?",
+    "answers": ["Saturn", "Jupiter", "Uranus", "Neptune"],
+    "correctAnswer": 0,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 3,
+    "category": "Science",
+    "question": "Which part of the cell contains genetic material?",
+    "answers": ["Cytoplasm", "Nucleus", "Cell Membrane", "Ribosome"],
+    "correctAnswer": 1,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 4,
+    "category": "Science",
+    "question": "What type of blood cells help the body fight infection?",
+    "answers": ["Red Blood Cells", "White Blood Cells", "Platelets", "Plasma"],
+    "correctAnswer": 1,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 5,
+    "category": "Science",
+    "question": "What is the most abundant gas in Earth's atmosphere?",
+    "answers": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
+    "correctAnswer": 1,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 6,
+    "category": "Science",
+    "question": "What is the powerhouse of the cell?",
+    "answers": ["Ribosome", "Mitochondria", "Chloroplast", "Nucleus"],
+    "correctAnswer": 1,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 7,
+    "category": "Science",
+    "question": "Which element has the highest electrical conductivity?",
+    "answers": ["Gold", "Copper", "Silver", "Aluminum"],
+    "correctAnswer": 2,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 8,
+    "category": "Science",
+    "question": "What is the process by which plants lose water vapor through their leaves?",
+    "answers": [
+      "Respiration",
+      "Photosynthesis",
+      "Transpiration",
+      "Condensation"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 9,
+    "category": "Science",
+    "question": "What is the approximate speed of light?",
+    "answers": ["300,000 km/s", "150,000 km/s", "500,000 km/s", "200,000 km/s"],
+    "correctAnswer": 0,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 10,
+    "category": "Science",
+    "question": "What type of rock is formed from cooled lava?",
+    "answers": ["Sedimentary", "Igneous", "Metamorphic", "Fossil Rock"],
+    "correctAnswer": 1,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 11,
+    "category": "Science",
+    "question": "What is the heaviest naturally occurring element?",
+    "answers": ["Uranium", "Lead", "Plutonium", "Osmium"],
+    "correctAnswer": 0,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 12,
+    "category": "Science",
+    "question": "What part of the brain controls balance and coordination?",
+    "answers": ["Cerebrum", "Cerebellum", "Medulla", "Hypothalamus"],
+    "correctAnswer": 1,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 13,
+    "category": "Science",
+    "question": "What is the most common element in the universe?",
+    "answers": ["Oxygen", "Hydrogen", "Carbon", "Helium"],
+    "correctAnswer": 1,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 14,
+    "category": "Science",
+    "question": "Which blood type is known as the universal donor?",
+    "answers": ["A", "B", "O Negative", "AB Positive"],
+    "correctAnswer": 2,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 15,
+    "category": "Science",
+    "question": "What is measured on the Richter scale?",
+    "answers": ["Tsunamis", "Volcanic Eruptions", "Earthquakes", "Hurricanes"],
+    "correctAnswer": 2,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 16,
+    "category": "Science",
+    "question": "Which vitamin is mainly produced when the skin is exposed to sunlight?",
+    "answers": ["Vitamin A", "Vitamin B12", "Vitamin C", "Vitamin D"],
+    "correctAnswer": 3,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 17,
+    "category": "Science",
+    "question": "What type of energy is stored in a stretched rubber band?",
+    "answers": ["Kinetic", "Thermal", "Elastic Potential", "Chemical"],
+    "correctAnswer": 2,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 18,
+    "category": "Science",
+    "question": "What is the hardest natural substance on Earth?",
+    "answers": ["Iron", "Diamond", "Quartz", "Granite"],
+    "correctAnswer": 1,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 19,
+    "category": "Science",
+    "question": "Which planet is tilted on its side, rotating almost horizontally?",
+    "answers": ["Saturn", "Neptune", "Uranus", "Mars"],
+    "correctAnswer": 2,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 20,
+    "category": "Science",
+    "question": "What is the process of cell division that produces gametes?",
+    "answers": ["Mitosis", "Binary Fission", "Meiosis", "Fertilization"],
+    "correctAnswer": 2,
+    "difficulty": "Medium",
+    "points": 20
+  }
+]

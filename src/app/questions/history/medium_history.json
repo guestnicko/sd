@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "category": "World History",
+    "question": "Who was the first emperor of Rome?",
+    "answers": ["Julius Caesar", "Augustus", "Nero", "Caligula"],
+    "correctAnswer": 1,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 2,
+    "category": "World History",
+    "question": "The Great Fire of London occurred in which year?",
+    "answers": ["1556", "1666", "1766", "1866"],
+    "correctAnswer": 1,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 3,
+    "category": "World History",
+    "question": "Which empire built the famous city of Machu Picchu?",
+    "answers": ["Maya", "Aztec", "Inca", "Olmec"],
+    "correctAnswer": 2,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 4,
+    "category": "World History",
+    "question": "What was the name of the ship on which the Pilgrims traveled to North America in 1620?",
+    "answers": ["Santa Maria", "Endeavour", "Mayflower", "Victoria"],
+    "correctAnswer": 2,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 5,
+    "category": "World History",
+    "question": "Who painted the ceiling of the Sistine Chapel?",
+    "answers": ["Leonardo da Vinci", "Raphael", "Michelangelo", "Donatello"],
+    "correctAnswer": 2,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 6,
+    "category": "World History",
+    "question": "Which treaty ended World War I?",
+    "answers": [
+      "Treaty of Versailles",
+      "Treaty of Paris",
+      "Treaty of Ghent",
+      "Treaty of Tordesillas"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 7,
+    "category": "World History",
+    "question": "The Cold War primarily involved tensions between the USA and which other superpower?",
+    "answers": ["China", "Soviet Union", "Germany", "Japan"],
+    "correctAnswer": 1,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 8,
+    "category": "World History",
+    "question": "Who was known as the 'Iron Lady'?",
+    "answers": [
+      "Angela Merkel",
+      "Golda Meir",
+      "Margaret Thatcher",
+      "Indira Gandhi"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 9,
+    "category": "World History",
+    "question": "What ancient civilization built the pyramids of Giza?",
+    "answers": ["Mesopotamians", "Romans", "Egyptians", "Persians"],
+    "correctAnswer": 2,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 10,
+    "category": "World History",
+    "question": "Which empire was ruled by Genghis Khan?",
+    "answers": [
+      "Ottoman Empire",
+      "Mongol Empire",
+      "Persian Empire",
+      "Roman Empire"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 11,
+    "category": "World History",
+    "question": "The Berlin Wall fell in which year?",
+    "answers": ["1987", "1989", "1991", "1993"],
+    "correctAnswer": 1,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 12,
+    "category": "World History",
+    "question": "The Renaissance began in which country?",
+    "answers": ["France", "Italy", "Spain", "England"],
+    "correctAnswer": 1,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 13,
+    "category": "World History",
+    "question": "Who discovered the sea route to India around the Cape of Good Hope?",
+    "answers": [
+      "Christopher Columbus",
+      "Ferdinand Magellan",
+      "Vasco da Gama",
+      "Marco Polo"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 14,
+    "category": "World History",
+    "question": "What was the capital of the Byzantine Empire?",
+    "answers": ["Athens", "Rome", "Constantinople", "Alexandria"],
+    "correctAnswer": 2,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 15,
+    "category": "World History",
+    "question": "Which country gifted the Statue of Liberty to the United States?",
+    "answers": ["Germany", "France", "Italy", "Spain"],
+    "correctAnswer": 1,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 16,
+    "category": "World History",
+    "question": "Who was the leader of the Soviet Union during World War II?",
+    "answers": [
+      "Nikita Khrushchev",
+      "Vladimir Lenin",
+      "Joseph Stalin",
+      "Leon Trotsky"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 17,
+    "category": "World History",
+    "question": "Which empire was known for its road system and aqueducts?",
+    "answers": [
+      "Greek Empire",
+      "Roman Empire",
+      "Persian Empire",
+      "Mongol Empire"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 18,
+    "category": "World History",
+    "question": "Who was assassinated in Sarajevo in 1914, sparking World War I?",
+    "answers": [
+      "Archduke Franz Ferdinand",
+      "Kaiser Wilhelm II",
+      "Czar Nicholas II",
+      "Winston Churchill"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 19,
+    "category": "World History",
+    "question": "Who was the first President of the United States?",
+    "answers": [
+      "Abraham Lincoln",
+      "Thomas Jefferson",
+      "George Washington",
+      "John Adams"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 20,
+    "category": "World History",
+    "question": "The Rosetta Stone helped scholars to understand which ancient script?",
+    "answers": ["Cuneiform", "Hieroglyphics", "Sanskrit", "Latin"],
+    "correctAnswer": 1,
+    "difficulty": "Medium",
+    "points": 20
+  }
+]

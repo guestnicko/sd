@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "category": "Mathematics",
+    "question": "What is the value of 15²?",
+    "answers": ["215", "220", "225", "230"],
+    "correctAnswer": 2,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 2,
+    "category": "Mathematics",
+    "question": "What is the least common multiple (LCM) of 6 and 8?",
+    "answers": ["12", "18", "24", "36"],
+    "correctAnswer": 2,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 3,
+    "category": "Mathematics",
+    "question": "Solve for x: 2x + 5 = 15",
+    "answers": ["x = 3", "x = 4", "x = 5", "x = 6"],
+    "correctAnswer": 1,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 4,
+    "category": "Mathematics",
+    "question": "What is the area of a triangle with base 10 and height 6?",
+    "answers": ["20", "25", "30", "35"],
+    "correctAnswer": 2,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 5,
+    "category": "Mathematics",
+    "question": "What is the cube of 4?",
+    "answers": ["16", "32", "64", "128"],
+    "correctAnswer": 2,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 6,
+    "category": "Mathematics",
+    "question": "What is the perimeter of a rectangle with length 12 and width 5?",
+    "answers": ["22", "24", "30", "34"],
+    "correctAnswer": 3,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 7,
+    "category": "Mathematics",
+    "question": "Simplify: 3/4 + 2/3",
+    "answers": ["17/12", "13/12", "19/12", "21/12"],
+    "correctAnswer": 2,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 8,
+    "category": "Mathematics",
+    "question": "What is the next number in the sequence: 2, 4, 8, 16, ?",
+    "answers": ["24", "30", "32", "36"],
+    "correctAnswer": 2,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 9,
+    "category": "Mathematics",
+    "question": "If a circle has a radius of 7, what is its diameter?",
+    "answers": ["7", "10", "12", "14"],
+    "correctAnswer": 3,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 10,
+    "category": "Mathematics",
+    "question": "What is 5 factorial (5!)?",
+    "answers": ["60", "100", "120", "150"],
+    "correctAnswer": 2,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 11,
+    "category": "Mathematics",
+    "question": "Solve for y: 3y − 7 = 11",
+    "answers": ["y = 5", "y = 6", "y = 7", "y = 8"],
+    "correctAnswer": 1,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 12,
+    "category": "Mathematics",
+    "question": "What is the sum of the angles in a quadrilateral?",
+    "answers": ["90°", "180°", "270°", "360°"],
+    "correctAnswer": 3,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 13,
+    "category": "Mathematics",
+    "question": "What is the slope of the line: y = 3x + 2?",
+    "answers": ["2", "3", "x", "y"],
+    "correctAnswer": 1,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 14,
+    "category": "Mathematics",
+    "question": "What is the greatest common divisor (GCD) of 18 and 24?",
+    "answers": ["2", "3", "6", "12"],
+    "correctAnswer": 2,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 15,
+    "category": "Mathematics",
+    "question": "What is the area of a circle with radius 3 (use π ≈ 3.14)?",
+    "answers": ["28.26", "30.14", "32.10", "34.12"],
+    "correctAnswer": 0,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 16,
+    "category": "Mathematics",
+    "question": "If 5 pencils cost $10, how much do 8 pencils cost?",
+    "answers": ["12", "14", "15", "16"],
+    "correctAnswer": 3,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 17,
+    "category": "Mathematics",
+    "question": "What is the 10th term of the arithmetic sequence: 2, 5, 8, 11…?",
+    "answers": ["26", "29", "32", "35"],
+    "correctAnswer": 1,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 18,
+    "category": "Mathematics",
+    "question": "What is the square root of 196?",
+    "answers": ["12", "13", "14", "15"],
+    "correctAnswer": 2,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 19,
+    "category": "Mathematics",
+    "question": "What is the volume of a cube with side length 5?",
+    "answers": ["100", "110", "115", "125"],
+    "correctAnswer": 3,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 20,
+    "category": "Mathematics",
+    "question": "What is the value of x in 2x² = 50?",
+    "answers": ["x = 4", "x = 5", "x = 6", "x = 7"],
+    "correctAnswer": 1,
+    "difficulty": "Medium",
+    "points": 20
+  }
+]

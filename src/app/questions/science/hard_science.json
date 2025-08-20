@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "category": "Science",
+    "question": "What is the only letter not appearing in the periodic table of elements?",
+    "answers": ["J", "Q", "W", "X"],
+    "correctAnswer": 1,
+    "difficulty": "Hard",
+    "points": 25
+  },
+  {
+    "id": 2,
+    "category": "Science",
+    "question": "What is the rarest naturally occurring element on Earth?",
+    "answers": ["Francium", "Astatine", "Rhenium", "Protactinium"],
+    "correctAnswer": 1,
+    "difficulty": "Hard",
+    "points": 25
+  },
+  {
+    "id": 3,
+    "category": "Science",
+    "question": "Which law of thermodynamics states that energy cannot be created or destroyed?",
+    "answers": ["First Law", "Second Law", "Third Law", "Zeroth Law"],
+    "correctAnswer": 0,
+    "difficulty": "Hard",
+    "points": 25
+  },
+  {
+    "id": 4,
+    "category": "Science",
+    "question": "Which scientist is credited with the discovery of penicillin?",
+    "answers": [
+      "Alexander Fleming",
+      "Louis Pasteur",
+      "Robert Koch",
+      "Joseph Lister"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "Hard",
+    "points": 25
+  },
+  {
+    "id": 5,
+    "category": "Science",
+    "question": "Which particle is responsible for carrying the electromagnetic force?",
+    "answers": ["Proton", "Neutrino", "Photon", "Gluon"],
+    "correctAnswer": 2,
+    "difficulty": "Hard",
+    "points": 25
+  },
+  {
+    "id": 6,
+    "category": "Science",
+    "question": "What is the name of the phenomenon where light bends around an object?",
+    "answers": ["Reflection", "Diffraction", "Refraction", "Dispersion"],
+    "correctAnswer": 1,
+    "difficulty": "Hard",
+    "points": 25
+  },
+  {
+    "id": 7,
+    "category": "Science",
+    "question": "Which scientist proposed the uncertainty principle?",
+    "answers": ["Einstein", "Bohr", "Heisenberg", "Schrödinger"],
+    "correctAnswer": 2,
+    "difficulty": "Hard",
+    "points": 25
+  },
+  {
+    "id": 8,
+    "category": "Science",
+    "question": "What is the second most abundant element in Earth's crust?",
+    "answers": ["Oxygen", "Aluminum", "Silicon", "Calcium"],
+    "correctAnswer": 2,
+    "difficulty": "Hard",
+    "points": 25
+  },
+  {
+    "id": 9,
+    "category": "Science",
+    "question": "What type of bond involves the sharing of electron pairs between atoms?",
+    "answers": ["Ionic", "Covalent", "Metallic", "Hydrogen"],
+    "correctAnswer": 1,
+    "difficulty": "Hard",
+    "points": 25
+  },
+  {
+    "id": 10,
+    "category": "Science",
+    "question": "Which subatomic particle has no electric charge?",
+    "answers": ["Proton", "Electron", "Neutron", "Quark"],
+    "correctAnswer": 2,
+    "difficulty": "Hard",
+    "points": 25
+  },
+  {
+    "id": 11,
+    "category": "Science",
+    "question": "What is the approximate age of the Earth?",
+    "answers": [
+      "3.5 billion years",
+      "4.5 billion years",
+      "2.5 billion years",
+      "5.5 billion years"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "Hard",
+    "points": 25
+  },
+  {
+    "id": 12,
+    "category": "Science",
+    "question": "Which scientist proposed the theory of continental drift?",
+    "answers": [
+      "Charles Darwin",
+      "Alfred Wegener",
+      "Isaac Newton",
+      "James Hutton"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "Hard",
+    "points": 25
+  },
+  {
+    "id": 13,
+    "category": "Science",
+    "question": "Which branch of physics studies the behavior of matter and energy at the atomic and subatomic level?",
+    "answers": [
+      "Classical Mechanics",
+      "Quantum Mechanics",
+      "Thermodynamics",
+      "Electromagnetism"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "Hard",
+    "points": 25
+  },
+  {
+    "id": 14,
+    "category": "Science",
+    "question": "What is the SI unit of electrical resistance?",
+    "answers": ["Ampere", "Volt", "Ohm", "Watt"],
+    "correctAnswer": 2,
+    "difficulty": "Hard",
+    "points": 25
+  },
+  {
+    "id": 15,
+    "category": "Science",
+    "question": "What is the half-life of Carbon-14?",
+    "answers": ["5,730 years", "10,000 years", "1,500 years", "50,000 years"],
+    "correctAnswer": 0,
+    "difficulty": "Hard",
+    "points": 25
+  },
+  {
+    "id": 16,
+    "category": "Science",
+    "question": "Which layer of Earth is liquid?",
+    "answers": ["Inner Core", "Outer Core", "Mantle", "Crust"],
+    "correctAnswer": 1,
+    "difficulty": "Hard",
+    "points": 25
+  },
+  {
+    "id": 17,
+    "category": "Science",
+    "question": "Which phenomenon explains why the sky appears blue?",
+    "answers": ["Refraction", "Scattering", "Diffraction", "Absorption"],
+    "correctAnswer": 1,
+    "difficulty": "Hard",
+    "points": 25
+  },
+  {
+    "id": 18,
+    "category": "Science",
+    "question": "Which scientist is known for the thought experiment 'Schrödinger’s Cat'?",
+    "answers": ["Einstein", "Schrödinger", "Planck", "Bohr"],
+    "correctAnswer": 1,
+    "difficulty": "Hard",
+    "points": 25
+  },
+  {
+    "id": 19,
+    "category": "Science",
+    "question": "Which planet has a day longer than its year?",
+    "answers": ["Mercury", "Venus", "Mars", "Neptune"],
+    "correctAnswer": 1,
+    "difficulty": "Hard",
+    "points": 25
+  },
+  {
+    "id": 20,
+    "category": "Science",
+    "question": "What is the most common isotope of hydrogen?",
+    "answers": ["Deuterium", "Tritium", "Protium", "Hydronium"],
+    "correctAnswer": 2,
+    "difficulty": "Hard",
+    "points": 25
+  }
+]
