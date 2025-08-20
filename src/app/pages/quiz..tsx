@@ -107,10 +107,6 @@ type QuizProps = {
   onExit: (state: GameState) => void; // ✅ parent callback
 };
 export default function QuizGame({ onExit, questions }: QuizProps) {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
 
   const handleClick = () => {
     onExit("menu");
@@ -391,9 +387,9 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
 
       {/* Question Card */}
       {QuizState.currentQuestion && (
-        <div className="flex justify-between">
+        <div className="flex flex-col lg:flex-row justify-between">
           {/* Question Section */}
-          <Card className="shadow-xl my-3 w-full">
+          <Card className="shadow-xl my-3 w-full md:w-1/">
             <CardHeader>
               <div className="flex items-center justify-between mb-4">
                 <Badge
@@ -559,10 +555,12 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
 
                     return (
                       <div key={horse.id} className="relative">
-                        {/* Lane Background */}
+                        {/* Lane Background 
+                          -- put isUserChoice instead of isCorrectAnswer para dli ma reveal ang answer
+                        */}
                         <div
                           className={`h-16 border-2 rounded-lg relative overflow-hidden shadow-inner ${
-                            isCorrectAnswer
+                            isUserChoice
                               ? "bg-gradient-to-r from-green-200 via-green-300 to-green-200 border-green-400"
                               : isUserChoice
                               ? "bg-gradient-to-r from-blue-200 via-blue-300 to-blue-200 border-blue-400"
@@ -570,8 +568,16 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
                           }`}
                         >
                           {/* Lane Identifier */}
-                          <div className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg border-2 border-gray-400 shadow">
-                            {horse.answerChoice}
+                          <div className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white rounded-xl w-10 h-10 flex items-center justify-center font-bold text-lg border-2 border-gray-400 shadow">
+                            {/* {horse.answerChoice} */}
+                              {/* Choice Indicator */}
+                                {isUserChoice && (
+                                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
+                                    <div className="text-4xl px-2 py-1 rounded font-bold shadow">
+                                      💰
+                                    </div>
+                                  </div>
+                              )}
                           </div>
 
                           {/* Track Lines */}
@@ -585,6 +591,7 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
                               ></div>
                             ))}
                           </div>
+                          
 
                           {/* Finish Line */}
                           <div className="absolute right-0 top-0 h-full w-4 bg-gradient-to-r from-red-500 to-red-600 border-l-2 border-red-700 shadow-lg flex items-center justify-center">
@@ -595,7 +602,7 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
 
                           {/* Horse Sprite */}
                           <div
-                            className={`absolute top-1/2 transform -translate-y-1/2 transition-all duration-75 ${
+                            className={`absolute top-1/2 transform -translate-y-1/2 transition-all duration-75 mx-4 sm:mx-2 lg:mx-4 ${
                               QuizState.isRacing ? "racing" : ""
                             }`}
                             style={{
@@ -612,7 +619,7 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
                                 <div className="dust-trail w-4 h-2 bg-purple-400 opacity-50 rounded-full"></div>
                               </div>
                             )}
-
+    
                             {/* Horse Body */}
                             <div className="relative">
                               <div
@@ -629,20 +636,11 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
                                 </div>
 
                                 {/* Answer Choice Badge */}
-                                <div className="absolute -top-2 -right-2 w-8 h-8 bg-white rounded-full border-2 border-gray-400 shadow-lg flex items-center justify-center">
+                                <div className="absolute -top-2 -right-2 w-8 h-8 bg-yellow-500 rounded-full border-2 border-gray-400 shadow-lg flex items-center justify-center">
                                   <span className="text-lg font-bold">
                                     {horse.emoji}
                                   </span>
                                 </div>
-
-                                {/* Choice Indicator */}
-                                {isUserChoice && (
-                                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
-                                    <div className="bg-blue-600 text-white text-xs px-2 py-1 rounded font-bold shadow">
-                                      YOUR PICK
-                                    </div>
-                                  </div>
-                                )}
 
                                 {isCorrectAnswer && QuizState.raceResult && (
                                   <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
