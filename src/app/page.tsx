@@ -23,6 +23,7 @@ interface Question {
   correctAnswer: number;
   difficulty: string;
   points: number;
+  isAnswered: boolean;
 }
 
 export default function QuizRacingGame(): JSX.Element {

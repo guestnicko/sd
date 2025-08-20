@@ -6,7 +6,8 @@
     "answers": ["Earth", "Mars", "Venus", "Jupiter"],
     "correctAnswer": 1,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "answers": ["Carbon Dioxide", "Oxygen", "Nitrogen", "Helium"],
     "correctAnswer": 1,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 3,
@@ -24,7 +26,8 @@
     "answers": ["Hydrogen", "Salt", "Water", "Oxygen"],
     "correctAnswer": 2,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 4,
@@ -33,7 +36,8 @@
     "answers": ["Lungs", "Heart", "Kidneys", "Stomach"],
     "correctAnswer": 1,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 5,
@@ -42,7 +46,8 @@
     "answers": ["Mercury", "Venus", "Earth", "Mars"],
     "correctAnswer": 0,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 6,
@@ -51,7 +56,8 @@
     "answers": ["Magnetism", "Friction", "Gravity", "Electricity"],
     "correctAnswer": 2,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 7,
@@ -60,7 +66,8 @@
     "answers": ["Root", "Stem", "Flower", "Leaf"],
     "correctAnswer": 3,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 8,
@@ -69,7 +76,8 @@
     "answers": ["Earth", "Jupiter", "Saturn", "Neptune"],
     "correctAnswer": 1,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 9,
@@ -78,7 +86,8 @@
     "answers": ["Liver", "Lungs", "Heart", "Stomach"],
     "correctAnswer": 1,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 10,
@@ -87,7 +96,8 @@
     "answers": ["Electron", "Nucleus", "Proton", "Neutron"],
     "correctAnswer": 1,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 11,
@@ -96,7 +106,8 @@
     "answers": ["Moon", "Wind", "Sun", "Water"],
     "correctAnswer": 2,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 12,
@@ -105,7 +116,8 @@
     "answers": ["Heart", "Brain", "Lungs", "Kidneys"],
     "correctAnswer": 1,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 13,
@@ -114,7 +126,8 @@
     "answers": ["Mars", "Jupiter", "Saturn", "Neptune"],
     "correctAnswer": 2,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 14,
@@ -123,7 +136,8 @@
     "answers": ["Lungs", "Heart", "Brain", "Liver"],
     "correctAnswer": 1,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 15,
@@ -132,7 +146,8 @@
     "answers": ["0", "32", "100", "273"],
     "correctAnswer": 0,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 16,
@@ -141,7 +156,8 @@
     "answers": ["Water", "Nectar", "Leaves", "Pollen"],
     "correctAnswer": 1,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 17,
@@ -150,7 +166,8 @@
     "answers": ["Carbon Dioxide", "Oxygen", "Nitrogen", "Hydrogen"],
     "correctAnswer": 1,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 18,
@@ -159,7 +176,8 @@
     "answers": ["Atom", "Molecule", "Cell", "Organ"],
     "correctAnswer": 2,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 19,
@@ -168,7 +186,8 @@
     "answers": ["Cornea", "Lens", "Retina", "Iris"],
     "correctAnswer": 2,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 20,
@@ -177,6 +196,7 @@
     "answers": ["Polaris", "Alpha Centauri", "The Sun", "Sirius"],
     "correctAnswer": 2,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   }
 ]

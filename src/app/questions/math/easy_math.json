@@ -1,29 +1,202 @@
 [
   {
-    "id": 18,
+    "id": 1,
+    "category": "Mathematics",
+    "question": "What is 5 + 3?",
+    "answers": ["6", "7", "8", "9"],
+    "correctAnswer": 2,
+    "difficulty": "Easy",
+    "points": 15,
+    "isAnswered": false
+  },
+  {
+    "id": 2,
+    "category": "Mathematics",
+    "question": "What is 10 - 4?",
+    "answers": ["5", "6", "7", "8"],
+    "correctAnswer": 1,
+    "difficulty": "Easy",
+    "points": 15,
+    "isAnswered": false
+  },
+  {
+    "id": 3,
+    "category": "Mathematics",
+    "question": "What is 6 × 2?",
+    "answers": ["10", "11", "12", "13"],
+    "correctAnswer": 2,
+    "difficulty": "Easy",
+    "points": 15,
+    "isAnswered": false
+  },
+  {
+    "id": 4,
+    "category": "Mathematics",
+    "question": "What is 15 ÷ 3?",
+    "answers": ["3", "4", "5", "6"],
+    "correctAnswer": 2,
+    "difficulty": "Easy",
+    "points": 15,
+    "isAnswered": false
+  },
+  {
+    "id": 5,
     "category": "Mathematics",
     "question": "What is the value of π (pi) approximately?",
     "answers": ["2.14", "3.14", "4.14", "5.14"],
     "correctAnswer": 1,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
+  },
+  {
+    "id": 6,
+    "category": "Mathematics",
+    "question": "What is 9 + 10?",
+    "answers": ["18", "19", "20", "21"],
+    "correctAnswer": 1,
+    "difficulty": "Easy",
+    "points": 15,
+    "isAnswered": false
+  },
+  {
+    "id": 7,
+    "category": "Mathematics",
+    "question": "What is 7 × 7?",
+    "answers": ["47", "48", "49", "50"],
+    "correctAnswer": 2,
+    "difficulty": "Easy",
+    "points": 15,
+    "isAnswered": false
+  },
+  {
+    "id": 8,
+    "category": "Mathematics",
+    "question": "What is 12 ÷ 4?",
+    "answers": ["2", "3", "4", "6"],
+    "correctAnswer": 1,
+    "difficulty": "Easy",
+    "points": 15,
+    "isAnswered": false
+  },
+  {
+    "id": 9,
+    "category": "Mathematics",
+    "question": "What is 20 - 9?",
+    "answers": ["9", "10", "11", "12"],
+    "correctAnswer": 2,
+    "difficulty": "Easy",
+    "points": 15,
+    "isAnswered": false
+  },
+  {
+    "id": 10,
+    "category": "Mathematics",
+    "question": "What is 11 + 13?",
+    "answers": ["23", "24", "25", "26"],
+    "correctAnswer": 1,
+    "difficulty": "Easy",
+    "points": 15,
+    "isAnswered": false
+  },
+  {
+    "id": 11,
+    "category": "Mathematics",
+    "question": "What is the square root of 81?",
+    "answers": ["8", "9", "10", "11"],
+    "correctAnswer": 1,
+    "difficulty": "Easy",
+    "points": 15,
+    "isAnswered": false
+  },
+  {
+    "id": 12,
+    "category": "Mathematics",
+    "question": "What is 14 + 5?",
+    "answers": ["17", "18", "19", "20"],
+    "correctAnswer": 2,
+    "difficulty": "Easy",
+    "points": 15,
+    "isAnswered": false
+  },
+  {
+    "id": 13,
+    "category": "Mathematics",
+    "question": "What is 8 × 3?",
+    "answers": ["21", "22", "23", "24"],
+    "correctAnswer": 3,
+    "difficulty": "Easy",
+    "points": 15,
+    "isAnswered": false
+  },
+  {
+    "id": 14,
+    "category": "Mathematics",
+    "question": "What is 100 ÷ 10?",
+    "answers": ["8", "9", "10", "11"],
+    "correctAnswer": 2,
+    "difficulty": "Easy",
+    "points": 15,
+    "isAnswered": false
+  },
+  {
+    "id": 15,
+    "category": "Mathematics",
+    "question": "What is 25 + 25?",
+    "answers": ["45", "50", "55", "60"],
+    "correctAnswer": 1,
+    "difficulty": "Easy",
+    "points": 15,
+    "isAnswered": false
+  },
+  {
+    "id": 16,
+    "category": "Mathematics",
+    "question": "What is the square root of 36?",
+    "answers": ["5", "6", "7", "8"],
+    "correctAnswer": 1,
+    "difficulty": "Easy",
+    "points": 15,
+    "isAnswered": false
+  },
+  {
+    "id": 17,
+    "category": "Mathematics",
+    "question": "What is 18 - 7?",
+    "answers": ["9", "10", "11", "12"],
+    "correctAnswer": 2,
+    "difficulty": "Easy",
+    "points": 15,
+    "isAnswered": false
+  },
+  {
+    "id": 18,
+    "category": "Mathematics",
+    "question": "What is 4 × 9?",
+    "answers": ["34", "35", "36", "37"],
+    "correctAnswer": 2,
+    "difficulty": "Easy",
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 19,
     "category": "Mathematics",
-    "question": "What is 12 × 12?",
-    "answers": ["124", "144", "154", "164"],
-    "correctAnswer": 1,
+    "question": "What is 50 ÷ 5?",
+    "answers": ["8", "9", "10", "11"],
+    "correctAnswer": 2,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 20,
     "category": "Mathematics",
-    "question": "What is the square root of 64?",
-    "answers": ["6", "8", "10", "12"],
-    "correctAnswer": 1,
-    "difficulty": "Medium",
-    "points": 20
+    "question": "What is 30 + 12?",
+    "answers": ["40", "41", "42", "43"],
+    "correctAnswer": 2,
+    "difficulty": "Easy",
+    "points": 15,
+    "isAnswered": false
   }
 ]

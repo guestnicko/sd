@@ -11,7 +11,8 @@
     ],
     "correctAnswer": 0,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 2,
@@ -20,7 +21,8 @@
     "answers": ["Greece", "China", "Egypt", "Rome"],
     "correctAnswer": 2,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 3,
@@ -34,7 +36,8 @@
     ],
     "correctAnswer": 1,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 4,
@@ -48,7 +51,8 @@
     ],
     "correctAnswer": 1,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 5,
@@ -57,7 +61,8 @@
     "answers": ["Japan", "China", "India", "Mongolia"],
     "correctAnswer": 1,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 6,
@@ -66,7 +71,8 @@
     "answers": ["1945", "1939", "1918", "1950"],
     "correctAnswer": 0,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 7,
@@ -75,7 +81,8 @@
     "answers": ["Nefertiti", "Cleopatra", "Hatshepsut", "Isis"],
     "correctAnswer": 1,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 8,
@@ -89,7 +96,8 @@
     ],
     "correctAnswer": 1,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 9,
@@ -98,7 +106,8 @@
     "answers": ["Santa Maria", "Mayflower", "Endeavour", "Victoria"],
     "correctAnswer": 1,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 10,
@@ -112,7 +121,8 @@
     ],
     "correctAnswer": 2,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 11,
@@ -121,7 +131,8 @@
     "answers": ["France", "United Kingdom", "Spain", "Germany"],
     "correctAnswer": 0,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 12,
@@ -135,7 +146,8 @@
     ],
     "correctAnswer": 1,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 13,
@@ -149,7 +161,8 @@
     ],
     "correctAnswer": 0,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 14,
@@ -163,7 +176,8 @@
     ],
     "correctAnswer": 2,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 15,
@@ -177,7 +191,8 @@
     ],
     "correctAnswer": 0,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 16,
@@ -191,7 +206,8 @@
     ],
     "correctAnswer": 1,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 17,
@@ -200,7 +216,8 @@
     "answers": ["Rome", "Egypt", "Greece", "Persia"],
     "correctAnswer": 2,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 18,
@@ -209,7 +226,8 @@
     "answers": ["Leonardo da Vinci", "Michelangelo", "Raphael", "Donatello"],
     "correctAnswer": 0,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 19,
@@ -218,7 +236,8 @@
     "answers": ["Spice Route", "Silk Road", "Tea Trail", "Amber Road"],
     "correctAnswer": 1,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   },
   {
     "id": 20,
@@ -227,6 +246,7 @@
     "answers": ["Italy", "Germany", "Austria", "Poland"],
     "correctAnswer": 1,
     "difficulty": "Easy",
-    "points": 15
+    "points": 15,
+    "isAnswered": false
   }
 ]

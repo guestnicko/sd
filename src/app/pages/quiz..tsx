@@ -12,7 +12,6 @@ import { Button } from "../components/ui/button";
 import { Progress } from "@radix-ui/react-progress";
 import { Modal, Box, Typography } from "@mui/material";
 
-
 interface Horse {
   id: number;
   name: string;
@@ -32,6 +31,7 @@ interface Question {
   correctAnswer: number;
   difficulty: string;
   points: number;
+  isAnswered: boolean;
 }
 
 interface RaceResult {
@@ -94,12 +94,6 @@ const HORSES: Horse[] = [
   },
 ];
 
-type MainMenuProps = {
-  onStart: (state: "menu" | "quiz" | "category") => void;
-};
-type QuizCategory = {
-  onSelect: (category: "Science" | "Math" | "History" | "exit") => void;
-};
 type GameState = "menu" | "quiz" | "category";
 
 type QuizProps = {
@@ -107,14 +101,10 @@ type QuizProps = {
   onExit: (state: GameState) => void; // ✅ parent callback
 };
 export default function QuizGame({ onExit, questions }: QuizProps) {
-
   const handleClick = () => {
     onExit("menu");
   };
-  const [QUESTIONS, setQuestions] = useState<Question[]>(questions);
-
-  if (questions) {
-  }
+  const QUESTIONS = questions;
 
   useEffect(() => {
     const initializeFarcaster = async () => {
@@ -167,9 +157,22 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
 
   const [horses, setHorses] = useState<Horse[]>(HORSES.map((h) => ({ ...h })));
   const raceIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const [answeredQuestions, setAnsweredQuestions] = useState<number[]>([]);
+  const [score, setScore] = useState(0);
+  const [streak, setStreak] = useState(0);
 
-  const getRandomQuestion = (): Question => {
-    return QUESTIONS[Math.floor(Math.random() * QUESTIONS.length)];
+  const getRandomQuestion = (): Question | null => {
+    // Filter only unanswered question indices
+    const available = QUESTIONS.filter(
+      (q) => !answeredQuestions.includes(q.id)
+    );
+
+    if (available.length === 0) {
+      return null; // no more questions left
+    }
+
+    const index = Math.floor(Math.random() * available.length);
+    return available[index];
   };
 
   const startNewQuestion = (): void => {
@@ -181,7 +184,9 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
       raceResult: null,
       lastScore: 0,
     }));
-
+    document
+      .getElementById("question-section")
+      ?.scrollIntoView({ behavior: "smooth" });
     // Reset horse positions
     setHorses(HORSES.map((h) => ({ ...h, position: 0, speed: 0 })));
   };
@@ -205,10 +210,26 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
       isRacing: true,
       totalQuestions: prev.totalQuestions + 1,
     }));
-
+    const question = QuizState.currentQuestion;
+    let gained = question.points;
     // Determine if answer is correct
     const isCorrect =
       QuizState.selectedAnswer === QuizState.currentQuestion.correctAnswer;
+
+    if (isCorrect && question) {
+      const newStreak = streak + 1;
+      setStreak(newStreak);
+      setAnsweredQuestions((prev) => [...prev, question.id]);
+      if (newStreak >= 3) {
+        const bonus = Math.floor(newStreak / 3) * 10; // +10 for every 3 in a row
+        gained += bonus;
+      }
+    } else {
+      // Wrong answer
+      gained = -5;
+      setStreak(0);
+    }
+    setScore((prev) => Math.max(0, prev + gained));
 
     // Set horse speeds - correct answer horse gets advantage
     const raceHorses = horses.map((horse, index) => {
@@ -232,7 +253,6 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
         speed,
       };
     });
-
     setHorses(raceHorses);
 
     // Start race animation
@@ -384,21 +404,37 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
           ⬅️ Main Menu
         </Button>
       </div>
-
       {/* Question Card */}
+      {QuizState && (
+        <div className="flex items-center justify-between mb-4 my-3">
+          <Badge className={` px-4 py-2 `}>
+            Questions Answered:{" "}
+            {answeredQuestions.length + "/" + questions.length}
+          </Badge>
+          <div className="flex gap-3">
+            <Badge className={` px-4 py-2 `}>Streak: {streak}</Badge>
+            <Badge className={` px-4 py-2 `}>
+              Total Points Scored: {score}
+            </Badge>
+          </div>
+        </div>
+      )}
       {QuizState.currentQuestion && (
         <div className="flex flex-col lg:flex-row justify-between">
           {/* Question Section */}
-          <Card className="shadow-xl my-3 w-full md:w-1/">
+          <Card id="question-section" className="shadow-xl my-3 w-full md:w-1/">
             <CardHeader>
               <div className="flex items-center justify-between mb-4">
-                <Badge
-                  className={`text-white px-4 py-2 ${getCategoryColor(
-                    QuizState.currentQuestion.category
-                  )}`}
-                >
-                  📚 {QuizState.currentQuestion.category}
-                </Badge>
+                <div>
+                  <Badge
+                    className={`text-white px-4 py-2 ${getCategoryColor(
+                      QuizState.currentQuestion.category
+                    )}`}
+                  >
+                    📚 {QuizState.currentQuestion.category}
+                  </Badge>
+                </div>
+
                 <div className="flex gap-2">
                   <Badge
                     className={`text-white text-lg px-4 py-2 ${getDifficultyColor(
@@ -518,18 +554,19 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
             </CardHeader>
             <CardContent className="p-0">
               {/* Grandstand Background */}
-              <div className="h-15 relative overflow-hidden"
-                  style={{
-                          backgroundColor: "#8f8f8f",
-                          backgroundImage: `
+              <div
+                className="h-15 relative overflow-hidden"
+                style={{
+                  backgroundColor: "#8f8f8f",
+                  backgroundImage: `
                             linear-gradient(45deg, #000 25%, transparent 25%),
                             linear-gradient(-45deg, #000 25%, transparent 25%),
                             linear-gradient(45deg, transparent 75%, #000 75%),
                             linear-gradient(-45deg, transparent 75%, #000 75%)
                           `,
-                          backgroundSize: "40px 40px",
-                          backgroundPosition: "0 0, 0 20px, 20px -20px, -20px 0px",
-                  }}
+                  backgroundSize: "40px 40px",
+                  backgroundPosition: "0 0, 0 20px, 20px -20px, -20px 0px",
+                }}
               >
                 <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-xs text-gray-600">
                   {QuizState.isRacing && (
@@ -570,14 +607,14 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
                           {/* Lane Identifier */}
                           <div className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white rounded-xl w-10 h-10 flex items-center justify-center font-bold text-lg border-2 border-gray-400 shadow">
                             {/* {horse.answerChoice} */}
-                              {/* Choice Indicator */}
-                                {isUserChoice && (
-                                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
-                                    <div className="text-4xl px-2 py-1 rounded font-bold shadow">
-                                      💰
-                                    </div>
-                                  </div>
-                              )}
+                            {/* Choice Indicator */}
+                            {isUserChoice && (
+                              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
+                                <div className="text-4xl px-2 py-1 rounded font-bold shadow">
+                                  💰
+                                </div>
+                              </div>
+                            )}
                           </div>
 
                           {/* Track Lines */}
@@ -591,7 +628,6 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
                               ></div>
                             ))}
                           </div>
-                          
 
                           {/* Finish Line */}
                           <div className="absolute right-0 top-0 h-full w-4 bg-gradient-to-r from-red-500 to-red-600 border-l-2 border-red-700 shadow-lg flex items-center justify-center">
@@ -619,7 +655,7 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
                                 <div className="dust-trail w-4 h-2 bg-purple-400 opacity-50 rounded-full"></div>
                               </div>
                             )}
-    
+
                             {/* Horse Body */}
                             <div className="relative">
                               <div
@@ -691,9 +727,7 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
             </CardContent>
           </Card>
         </div>
-
       )}
-  
       {/* Race Results */}
       <div>
         <Modal
@@ -702,7 +736,8 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
-          <Box sx={{
+          <Box
+            sx={{
               position: "absolute" as "absolute",
               top: "50%",
               left: "50%",
@@ -716,10 +751,10 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
               p: 4,
               maxHeight: "95vh", // slightly taller
               overflowY: "auto",
-          }}>
-            
-          {/* Show the Result via Modal */}
-          {QuizState.raceResult && (
+            }}
+          >
+            {/* Show the Result via Modal */}
+            {QuizState.raceResult && (
               <Card className="border-green-400 shadow-xl my-3 rounded-2xl bg-green-400">
                 <CardHeader>
                   <CardTitle className="text-2xl text-yellow-800 text-center">
@@ -788,7 +823,6 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
                       </div>
                     )}
 
-
                     {/* Action Buttons */}
                     <div className="flex justify-center gap-4">
                       <Button
@@ -808,12 +842,10 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
                   </div>
                 </CardContent>
               </Card>
-          )}
-
+            )}
           </Box>
         </Modal>
       </div>
-
     </>
   );
 }
