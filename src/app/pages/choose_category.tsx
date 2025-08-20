@@ -13,8 +13,8 @@ type CategoryMenuProps = {
 export default function CategoryMenu({ onSelect }: CategoryMenuProps) {
   return (
     <>
-      <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-purple-200 via-blue-100 to-purple-300">
-        <Card className="bg-gradient-to-br from-white to-blue-50 border-blue-300 shadow-xl max-w-md w-full">
+      <div className="flex items-center justify-center">
+        <Card className="shadow-xl max-w-md w-full my-8 border-2 border-teal-700 rounded-xl">
           <CardHeader>
             <CardTitle className="text-3xl text-center text-gray-800">
               📚 Select a Category
@@ -42,7 +42,7 @@ export default function CategoryMenu({ onSelect }: CategoryMenuProps) {
             <Button
               onClick={() => onSelect("exit")}
               variant="outline"
-              className="w-full h-12 text-lg font-bold border-2 border-gray-400 hover:bg-gray-100"
+              className="w-full h-12 text-lg font-bold border-2 bg-black border-gray-400 hover:bg-gray-900"
             >
               ⬅️ Exit to Main Menu
             </Button>

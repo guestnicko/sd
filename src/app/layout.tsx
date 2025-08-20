@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Quiz Racing Game",
+  title: "StallionQuiz",
   description: "Developed By DNSC CODEX ICSA",
 };
 

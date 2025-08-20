@@ -2,6 +2,8 @@
 
 import { useState, useEffect, JSX } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./components/ui/card";
+// Added guide component
+import Guide from "./components/ui/guide";
 
 import { sdk } from "@farcaster/miniapp-sdk";
 import QuizGame from "./pages/quiz.";
@@ -71,7 +73,16 @@ export default function QuizRacingGame(): JSX.Element {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-indigo-100 via-purple-50 to-pink-50 p-4">
+    // Added svg background
+    <div className="min-h-screen bg-gradient-to-b from-indigo-100 via-purple-50 to-pink-50"
+        style={{
+          backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 902 451' preserveAspectRatio='none'><rect x='0' y='0' width='902' height='451' fill='%23ffffff'/><g><path d='M -551.00 -15.10 S -285.50 -37.65 0.00 -15.10 173.00 -37.65 551.00 -15.10 816.50 -52.10 1102.00 -15.10 1226.00 -60.10 1653.00 -15.10 h 110 V 651 H -551.00 Z' fill='%23F6F6F6'/><path d='M -551.00 30.00 S -285.50 2.00 0.00 30.00 265.50 7.45 551.00 30.00 814.00 2.00 1102.00 30.00 1367.50 7.45 1653.00 30.00 h 110 V 651 H -551.00 Z' fill='%23e2ede5'/><path d='M -551.00 75.10 S -285.50 33.10 0.00 75.10 265.50 44.10 551.00 75.10 710.00 52.55 1102.00 75.10 1165.00 43.10 1653.00 75.10 h 110 V 651 H -551.00 Z' fill='%23cee4d4'/><path d='M -551.00 120.20 S -285.50 97.65 0.00 120.20 265.50 80.20 551.00 120.20 665.00 76.20 1102.00 120.20 1094.00 93.20 1653.00 120.20 h 110 V 651 H -551.00 Z' fill='%23badbc3'/><path d='M -551.00 165.30 S -285.50 128.30 0.00 165.30 265.50 142.75 551.00 165.30 816.50 138.30 1102.00 165.30 1367.50 122.30 1653.00 165.30 h 110 V 651 H -551.00 Z' fill='%23a6d2b2'/><path d='M -551.00 210.40 S -285.50 173.40 0.00 210.40 53.00 187.85 551.00 210.40 816.50 169.40 1102.00 210.40 1301.00 181.40 1653.00 210.40 h 110 V 651 H -551.00 Z' fill='%2392c9a1'/><path d='M -551.00 255.50 S -285.50 232.95 0.00 255.50 265.50 211.50 551.00 255.50 816.50 228.50 1102.00 255.50 1123.00 225.50 1653.00 255.50 h 110 V 651 H -551.00 Z' fill='%237ec090'/><path d='M -551.00 300.60 S -398.00 256.60 0.00 300.60 75.00 278.05 551.00 300.60 816.50 278.05 1102.00 300.60 1151.00 263.60 1653.00 300.60 h 110 V 651 H -551.00 Z' fill='%236ab77f'/><path d='M -551.00 345.70 S -285.50 313.70 0.00 345.70 171.00 323.15 551.00 345.70 580.00 323.15 1102.00 345.70 1367.50 311.70 1653.00 345.70 h 110 V 651 H -551.00 Z' fill='%2356ae6e'/><path d='M -551.00 390.80 S -365.00 358.80 0.00 390.80 265.50 361.80 551.00 390.80 723.00 349.80 1102.00 390.80 1367.50 359.80 1653.00 390.80 h 110 V 651 H -551.00 Z' fill='%2342a55d'/><path d='M -551.00 435.90 S -357.00 409.90 0.00 435.90 265.50 395.90 551.00 435.90 816.50 395.90 1102.00 435.90 1344.00 394.90 1653.00 435.90 h 110 V 651 H -551.00 Z' fill='%232e9c4c'/></g></svg>")`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+    
+    >
       {/* Racing Styles */}
       <style jsx>{`
         @keyframes gallop {
@@ -154,12 +165,12 @@ export default function QuizRacingGame(): JSX.Element {
         }
       `}</style>
 
-      <header className="max-w-7xl mx-auto space-y-8">
+      <header className="mx-auto space-y-8">
         {/* Header */}
-        <Card className="rainbow-bg border-indigo-500 shadow-xl">
+        <Card className="rainbow-bg bg-green-700">
           <CardHeader className="text-center py-8">
             <CardTitle className="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">
-              🧠 QUIZ RACING CHAMPIONSHIP 🏁
+              🧠 StallionQuiz 🏁
             </CardTitle>
             <div className="text-lg text-white mb-4 drop-shadow">
               Test Your Knowledge & Watch the Race!
@@ -168,7 +179,7 @@ export default function QuizRacingGame(): JSX.Element {
         </Card>
       </header>
 
-      <main className="my-5">
+      <main className="my-0">
         {gameState === "menu" && (
           <MainMenu onStart={(newState) => setGameState(newState)} />
         )}
@@ -191,63 +202,6 @@ export default function QuizRacingGame(): JSX.Element {
           />
         )}
       </main>
-
-      <footer>
-        {/* Game Guide */}
-        <Card className="bg-gradient-to-br from-indigo-50 to-purple-50 border-indigo-300 shadow-xl">
-          <CardHeader>
-            <CardTitle className="text-xl text-indigo-800">
-              🎯 How to Play Quiz Racing
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-700">
-              <div className="space-y-3">
-                <h4 className="font-semibold text-indigo-700 text-base">
-                  🧠 Racing Rules:
-                </h4>
-                <div className="space-y-2">
-                  <p className="flex items-start gap-2">
-                    <span className="text-green-600">🟢</span>
-                    <span>
-                      Read the question and pick your answer (A, B, C, or D)
-                    </span>
-                  </p>
-                  <p className="flex items-start gap-2">
-                    <span className="text-blue-600">🔵</span>
-                    <span>Each horse represents a different answer choice</span>
-                  </p>
-                  <p className="flex items-start gap-2">
-                    <span className="text-red-600">🔴</span>
-                    <span>
-                      Watch the race - correct answers win more often!
-                    </span>
-                  </p>
-                </div>
-              </div>
-              <div className="space-y-3">
-                <h4 className="font-semibold text-indigo-700 text-base">
-                  📊 Scoring System:
-                </h4>
-                <div className="space-y-2">
-                  <p className="flex items-start gap-2">
-                    <span className="text-yellow-600">⭐</span>
-                    <span>Easy: 15 pts, Medium: 20 pts, Hard: 30 pts</span>
-                  </p>
-                  <p className="flex items-start gap-2">
-                    <span className="text-purple-600">💜</span>
-                    <span>Streak bonuses: +10 pts every 3 correct answers</span>
-                  </p>
-                  <p className="flex items-start gap-2">
-                    <span className="text-orange-600">🧡</span>
-                    <span>Wrong answers: -5 points (but never below 0!)</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </footer>
     </div>
   );
 }
