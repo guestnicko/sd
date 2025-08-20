@@ -57,7 +57,7 @@ const HORSES: Horse[] = [
     answerChoice: "A",
     speed: 0,
     position: 0,
-    emoji: "🅰️",
+    emoji: "A",
   },
   {
     id: 2,
@@ -67,7 +67,7 @@ const HORSES: Horse[] = [
     answerChoice: "B",
     speed: 0,
     position: 0,
-    emoji: "🅱️",
+    emoji: "B",
   },
   {
     id: 3,
@@ -77,7 +77,7 @@ const HORSES: Horse[] = [
     answerChoice: "C",
     speed: 0,
     position: 0,
-    emoji: "🔵",
+    emoji: "C",
   },
   {
     id: 4,
@@ -87,7 +87,7 @@ const HORSES: Horse[] = [
     answerChoice: "D",
     speed: 0,
     position: 0,
-    emoji: "🟢",
+    emoji: "D",
   },
 ];
 
@@ -370,298 +370,324 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
   return (
     <>
       {" "}
-      <Button
-        onClick={handleClick}
-        variant="outline"
-        className="w-full h-12 text-lg font-bold border-2 border-gray-400 bg-red-400 hover:bg-red-500"
-      >
-        ⬅️ Exit to Main Menu
-      </Button>
+      {/* Exit to Main Menu */}
+      <div className="flex justify-center items-center mb-8 mt-2">
+        <Button
+          onClick={handleClick}
+          variant="outline"
+          className="w-100 mx-auto h-12 text-lg font-bold border-2 border-gray-400 bg-red-500 hover:bg-red-600"
+        >
+          ⬅️ Main Menu
+        </Button>
+      </div>
+
       {/* Question Card */}
       {QuizState.currentQuestion && (
-        <Card className="bg-gradient-to-br from-white to-blue-50 border-blue-300 shadow-xl my-3">
-          <CardHeader>
-            <div className="flex items-center justify-between mb-4">
-              <Badge
-                className={`text-white px-4 py-2 ${getCategoryColor(
-                  QuizState.currentQuestion.category
-                )}`}
-              >
-                📚 {QuizState.currentQuestion.category}
-              </Badge>
-              <div className="flex gap-2">
+        <div className="flex justify-between">
+          {/* Question Section */}
+          <Card className="shadow-xl my-3 w-full">
+            <CardHeader>
+              <div className="flex items-center justify-between mb-4">
                 <Badge
-                  className={`text-white px-4 py-2 ${getDifficultyColor(
-                    QuizState.currentQuestion.difficulty
+                  className={`text-white px-4 py-2 ${getCategoryColor(
+                    QuizState.currentQuestion.category
                   )}`}
                 >
-                  ⭐ {QuizState.currentQuestion.difficulty}
+                  📚 {QuizState.currentQuestion.category}
                 </Badge>
-                <Badge
-                  variant="outline"
-                  className="px-4 py-2 bg-purple-100 border-purple-300"
-                >
-                  🎯 {QuizState.currentQuestion.points} pts
-                </Badge>
-              </div>
-            </div>
-            <CardTitle className="text-2xl text-gray-800 leading-relaxed">
-              {QuizState.currentQuestion.question}
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {QuizState.currentQuestion.answers.map((answer, index) => {
-                const horse = horses[index];
-                const isSelected = QuizState.selectedAnswer === index;
-                const isCorrect =
-                  index === QuizState.currentQuestion!.correctAnswer;
-                const showResult = QuizState.raceResult !== null;
-
-                return (
-                  <Button
-                    key={index}
-                    onClick={() => handleAnswerSelect(index)}
-                    disabled={QuizState.isRacing}
-                    className={`
-                        h-auto p-6 text-left justify-start relative overflow-hidden text-wrap
-                        ${
-                          isSelected && !showResult
-                            ? "ring-4 ring-blue-400 bg-blue-100 border-blue-400"
-                            : ""
-                        }
-                        ${
-                          showResult && isCorrect
-                            ? "bg-green-100 border-green-400 ring-4 ring-green-400"
-                            : ""
-                        }
-                        ${
-                          showResult && !isCorrect && isSelected
-                            ? "bg-red-100 border-red-400 ring-4 ring-red-400"
-                            : ""
-                        }
-                        ${
-                          !isSelected && !showResult
-                            ? "bg-white hover:bg-gray-50 border-gray-300"
-                            : ""
-                        }
-                        transition-all duration-300 transform hover:scale-102
-                      `}
-                    variant="outline"
+                <div className="flex gap-2">
+                  <Badge
+                    className={`text-white text-lg px-4 py-2 ${getDifficultyColor(
+                      QuizState.currentQuestion.difficulty
+                    )}`}
                   >
-                    <div className="flex items-center gap-4 w-full">
-                      <div className="flex items-center gap-3">
-                        <div
-                          className="w-12 h-12 rounded-full border-3 border-white shadow-lg flex items-center justify-center text-2xl font-bold"
-                          style={{ backgroundColor: horse.color }}
-                        >
-                          {horse.emoji}
-                        </div>
-                        <div className="text-2xl font-bold text-gray-700">
-                          {horse.answerChoice}.
-                        </div>
-                      </div>
-                      <div className="flex-1 text-lg font-medium text-gray-800">
-                        {answer}
-                      </div>
-                      {showResult && isCorrect && (
-                        <div className="text-2xl">✅</div>
-                      )}
-                      {showResult && !isCorrect && isSelected && (
-                        <div className="text-2xl">❌</div>
-                      )}
-                    </div>
-                  </Button>
-                );
-              })}
-            </div>
+                    ⭐ {QuizState.currentQuestion.difficulty}
+                  </Badge>
+                  <Badge
+                    variant="outline"
+                    className="px-4 py-2 text-lg bg-gray-100 text-gray-950 border-2 border-gray-400"
+                  >
+                    🎯 {QuizState.currentQuestion.points} pts
+                  </Badge>
+                </div>
+              </div>
+              <CardTitle className="text-2xl text-gray-800 leading-relaxed">
+                {QuizState.currentQuestion.question}
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {QuizState.currentQuestion.answers.map((answer, index) => {
+                  const horse = horses[index];
+                  const isSelected = QuizState.selectedAnswer === index;
+                  const isCorrect =
+                    index === QuizState.currentQuestion!.correctAnswer;
+                  const showResult = QuizState.raceResult !== null;
 
-            <div className="mt-6 flex justify-center">
-              <Button
-                onClick={startRace}
-                disabled={
-                  QuizState.isRacing || QuizState.selectedAnswer === null
-                }
-                className="h-14 px-8 text-xl font-bold bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 shadow-lg text-white"
-              >
-                {QuizState.isRacing ? (
-                  <span className="flex items-center gap-2">
-                    <span className="animate-spin">🏃</span>
-                    Racing in Progress...
-                  </span>
-                ) : (
-                  <span className="flex items-center gap-2">
-                    🚀 Start the Race! 🚀
-                  </span>
-                )}
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-      )}
-      {/* Race Track */}
-      <Card className="bg-gradient-to-b from-purple-200 to-purple-300 border-purple-400 shadow-xl overflow-hidden my-3">
-        <CardHeader>
-          <CardTitle className="text-2xl text-purple-800 flex items-center gap-2">
-            🏁 Knowledge Racing Track 🏁
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="p-0">
-          {/* Grandstand Background */}
-          <div className="h-24 bg-gradient-to-b from-gray-300 to-gray-500 border-b-4 border-gray-600 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-200 via-white to-purple-200 opacity-30"></div>
-            <div className="absolute top-2 left-1/2 transform -translate-x-1/2 text-gray-700 font-bold text-sm">
-              🏟️ QUIZ CHAMPIONS STADIUM 🏟️
-            </div>
-            <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-xs text-gray-600">
-              Crowd: {QuizState.isRacing ? "🎉 GO! GO! GO!" : "🤔 Thinking..."}
-            </div>
-          </div>
-
-          {/* Racing Track */}
-          <div className="track-gradient p-6 relative">
-            <div className="space-y-4">
-              {horses.map((horse, index) => {
-                const isCorrectAnswer =
-                  QuizState.currentQuestion &&
-                  index === QuizState.currentQuestion.correctAnswer;
-                const isUserChoice = QuizState.selectedAnswer === index;
-
-                return (
-                  <div key={horse.id} className="relative">
-                    {/* Lane Background */}
-                    <div
-                      className={`h-16 border-2 rounded-lg relative overflow-hidden shadow-inner ${
-                        isCorrectAnswer
-                          ? "bg-gradient-to-r from-green-200 via-green-300 to-green-200 border-green-400"
-                          : isUserChoice
-                          ? "bg-gradient-to-r from-blue-200 via-blue-300 to-blue-200 border-blue-400"
-                          : "bg-gradient-to-r from-white via-gray-100 to-white border-gray-300"
-                      }`}
+                  return (
+                    <Button
+                      key={index}
+                      onClick={() => handleAnswerSelect(index)}
+                      disabled={QuizState.isRacing}
+                      className={`
+                          h-auto p-6 text-left justify-start relative overflow-hidden text-wrap
+                          ${
+                            isSelected && !showResult
+                              ? "ring-4 ring-blue-400 bg-blue-100 border-blue-400"
+                              : ""
+                          }
+                          ${
+                            showResult && isCorrect
+                              ? "bg-green-100 border-green-400 ring-4 ring-green-400"
+                              : ""
+                          }
+                          ${
+                            showResult && !isCorrect && isSelected
+                              ? "bg-red-100 border-red-400 ring-4 ring-red-400"
+                              : ""
+                          }
+                          ${
+                            !isSelected && !showResult
+                              ? "bg-white hover:bg-gray-50 border-gray-300"
+                              : ""
+                          }
+                          transition-all duration-300 transform hover:scale-102
+                        `}
+                      variant="outline"
                     >
-                      {/* Lane Identifier */}
-                      <div className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg border-2 border-gray-400 shadow">
-                        {horse.answerChoice}
-                      </div>
-
-                      {/* Track Lines */}
-                      <div className="absolute top-0 left-0 w-full h-full">
-                        <div className="absolute top-1/2 left-16 right-4 h-px bg-white opacity-40"></div>
-                        {Array.from({ length: 8 }).map((_, i) => (
+                      <div className="flex items-center gap-4 w-full">
+                        <div className="flex items-center gap-3">
                           <div
-                            key={i}
-                            className="absolute top-0 h-full w-px bg-white opacity-30"
-                            style={{ left: `${16 + i * 10}%` }}
-                          ></div>
-                        ))}
-                      </div>
-
-                      {/* Finish Line */}
-                      <div className="absolute right-0 top-0 h-full w-4 bg-gradient-to-r from-red-500 to-red-600 border-l-2 border-red-700 shadow-lg flex items-center justify-center">
-                        <div className="text-white text-xs font-bold transform rotate-90">
-                          🏁
-                        </div>
-                      </div>
-
-                      {/* Horse Sprite */}
-                      <div
-                        className={`absolute top-1/2 transform -translate-y-1/2 transition-all duration-75 ${
-                          QuizState.isRacing ? "racing" : ""
-                        }`}
-                        style={{
-                          left: `${Math.max(
-                            8,
-                            Math.min(88, 8 + horse.position * 0.8)
-                          )}%`,
-                          zIndex: 10 - index,
-                        }}
-                      >
-                        {/* Dust Trail */}
-                        {QuizState.isRacing && horse.speed > 0 && (
-                          <div className="absolute right-6 top-1/2 transform -translate-y-1/2">
-                            <div className="dust-trail w-4 h-2 bg-purple-400 opacity-50 rounded-full"></div>
+                            className="w-12 h-12 rounded-full border-3 border-white shadow-lg flex items-center justify-center text-2xl font-bold"
+                            style={{ backgroundColor: horse.color }}
+                          >
+                            {horse.emoji}
                           </div>
+                          <div className="text-2xl font-bold text-gray-700">
+                            {horse.answerChoice}.
+                          </div>
+                        </div>
+                        <div className="flex-1 text-lg font-medium text-gray-800">
+                          {answer}
+                        </div>
+                        {showResult && isCorrect && (
+                          <div className="text-2xl">✅</div>
                         )}
+                        {showResult && !isCorrect && isSelected && (
+                          <div className="text-2xl">❌</div>
+                        )}
+                      </div>
+                    </Button>
+                  );
+                })}
+              </div>
 
-                        {/* Horse Body */}
-                        <div className="relative">
+              <div className="mt-6 flex justify-center">
+                <Button
+                  onClick={startRace}
+                  disabled={
+                    QuizState.isRacing || QuizState.selectedAnswer === null
+                  }
+                  className="h-14 px-8 text-xl font-bold bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 shadow-lg text-white"
+                >
+                  {QuizState.isRacing ? (
+                    <span className="flex items-center gap-2">
+                      <span className="animate-spin">🏃</span>
+                      Racing in Progress...
+                    </span>
+                  ) : (
+                    <span className="flex items-center gap-2">
+                      🚀 Start the Race! 🚀
+                    </span>
+                  )}
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Race Track Section */}
+          <Card className="shadow-xl overflow-hidden my-3 w-full bg-gray-50 rounded-xl">
+            <CardHeader className="bg-green-700">
+              <CardTitle className="text-2xl text-gray-200 flex justify-center items-center gap-2">
+                🏁 Knowledge Racing Track 🏁
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="p-0">
+              {/* Grandstand Background */}
+              <div className="h-15 relative overflow-hidden"
+                  style={{
+                          backgroundColor: "#8f8f8f",
+                          backgroundImage: `
+                            linear-gradient(45deg, #000 25%, transparent 25%),
+                            linear-gradient(-45deg, #000 25%, transparent 25%),
+                            linear-gradient(45deg, transparent 75%, #000 75%),
+                            linear-gradient(-45deg, transparent 75%, #000 75%)
+                          `,
+                          backgroundSize: "40px 40px",
+                          backgroundPosition: "0 0, 0 20px, 20px -20px, -20px 0px",
+                  }}
+              >
+                <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-xs text-gray-600">
+                  {QuizState.isRacing && (
+                    <div className="flex gap-2 font-bold text-2xl text-yellow-300">
+                      <span className="animate-bounce">🎉</span>
+                      <span className="animate-bounce delay-150">GO!</span>
+                      <span className="animate-bounce delay-300">GO!</span>
+                      <span className="animate-bounce delay-500">GO!</span>
+                      <span className="animate-bounce delay-700">🎉</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Racing Track */}
+              <div className="track-gradient p-6 relative">
+                <div className="space-y-4">
+                  {horses.map((horse, index) => {
+                    const isCorrectAnswer =
+                      QuizState.currentQuestion &&
+                      index === QuizState.currentQuestion.correctAnswer;
+                    const isUserChoice = QuizState.selectedAnswer === index;
+
+                    return (
+                      <div key={horse.id} className="relative">
+                        {/* Lane Background */}
+                        <div
+                          className={`h-16 border-2 rounded-lg relative overflow-hidden shadow-inner ${
+                            isCorrectAnswer
+                              ? "bg-gradient-to-r from-green-200 via-green-300 to-green-200 border-green-400"
+                              : isUserChoice
+                              ? "bg-gradient-to-r from-blue-200 via-blue-300 to-blue-200 border-blue-400"
+                              : "bg-gradient-to-r from-white via-gray-100 to-white border-gray-300"
+                          }`}
+                        >
+                          {/* Lane Identifier */}
+                          <div className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg border-2 border-gray-400 shadow">
+                            {horse.answerChoice}
+                          </div>
+
+                          {/* Track Lines */}
+                          <div className="absolute top-0 left-0 w-full h-full">
+                            <div className="absolute top-1/2 left-16 right-4 h-px bg-white opacity-40"></div>
+                            {Array.from({ length: 8 }).map((_, i) => (
+                              <div
+                                key={i}
+                                className="absolute top-0 h-full w-px bg-white opacity-30"
+                                style={{ left: `${16 + i * 10}%` }}
+                              ></div>
+                            ))}
+                          </div>
+
+                          {/* Finish Line */}
+                          <div className="absolute right-0 top-0 h-full w-4 bg-gradient-to-r from-red-500 to-red-600 border-l-2 border-red-700 shadow-lg flex items-center justify-center">
+                            <div className="text-white text-xs font-bold transform rotate-90">
+                              🏁
+                            </div>
+                          </div>
+
+                          {/* Horse Sprite */}
                           <div
-                            className="horse-sprite w-16 h-12 rounded-xl shadow-xl border-3 border-white relative overflow-hidden"
+                            className={`absolute top-1/2 transform -translate-y-1/2 transition-all duration-75 ${
+                              QuizState.isRacing ? "racing" : ""
+                            }`}
                             style={{
-                              background: `linear-gradient(45deg, ${horse.color} 0%, ${horse.secondaryColor} 100%)`,
+                              left: `${Math.max(
+                                8,
+                                Math.min(88, 8 + horse.position * 0.8)
+                              )}%`,
+                              zIndex: 10 - index,
                             }}
                           >
-                            {/* Horse Emoji */}
-                            <div className="absolute inset-0 flex items-center justify-center">
-                              <span className="text-2xl drop-shadow-lg">
-                                🐎
-                              </span>
-                            </div>
-
-                            {/* Answer Choice Badge */}
-                            <div className="absolute -top-2 -right-2 w-8 h-8 bg-white rounded-full border-2 border-gray-400 shadow-lg flex items-center justify-center">
-                              <span className="text-lg font-bold">
-                                {horse.emoji}
-                              </span>
-                            </div>
-
-                            {/* Choice Indicator */}
-                            {isUserChoice && (
-                              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
-                                <div className="bg-blue-600 text-white text-xs px-2 py-1 rounded font-bold shadow">
-                                  YOUR PICK
-                                </div>
+                            {/* Dust Trail */}
+                            {QuizState.isRacing && horse.speed > 0 && (
+                              <div className="absolute right-6 top-1/2 transform -translate-y-1/2">
+                                <div className="dust-trail w-4 h-2 bg-purple-400 opacity-50 rounded-full"></div>
                               </div>
                             )}
 
-                            {isCorrectAnswer && QuizState.raceResult && (
-                              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
-                                <div className="bg-green-600 text-white text-xs px-2 py-1 rounded font-bold shadow animate-pulse">
-                                  CORRECT!
+                            {/* Horse Body */}
+                            <div className="relative">
+                              <div
+                                className="horse-sprite w-16 h-12 rounded-xl shadow-xl border-3 border-white relative overflow-hidden"
+                                style={{
+                                  background: `linear-gradient(45deg, ${horse.color} 0%, ${horse.secondaryColor} 100%)`,
+                                }}
+                              >
+                                {/* Horse Emoji */}
+                                <div className="absolute inset-0 flex items-center justify-center">
+                                  <span className="text-2xl drop-shadow-lg">
+                                    🐎
+                                  </span>
                                 </div>
+
+                                {/* Answer Choice Badge */}
+                                <div className="absolute -top-2 -right-2 w-8 h-8 bg-white rounded-full border-2 border-gray-400 shadow-lg flex items-center justify-center">
+                                  <span className="text-lg font-bold">
+                                    {horse.emoji}
+                                  </span>
+                                </div>
+
+                                {/* Choice Indicator */}
+                                {isUserChoice && (
+                                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
+                                    <div className="bg-blue-600 text-white text-xs px-2 py-1 rounded font-bold shadow">
+                                      YOUR PICK
+                                    </div>
+                                  </div>
+                                )}
+
+                                {isCorrectAnswer && QuizState.raceResult && (
+                                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
+                                    <div className="bg-green-600 text-white text-xs px-2 py-1 rounded font-bold shadow animate-pulse">
+                                      CORRECT!
+                                    </div>
+                                  </div>
+                                )}
                               </div>
-                            )}
+
+                              {/* Speed Indicator */}
+                              {QuizState.isRacing && horse.speed > 0 && (
+                                <div className="absolute -top-8 left-1/2 transform -translate-x-1/2">
+                                  <div className="bg-purple-600 text-white text-xs px-2 py-1 rounded font-bold shadow">
+                                    {(horse.speed * 60).toFixed(0)} mph
+                                  </div>
+                                </div>
+                              )}
+                            </div>
                           </div>
+                        </div>
 
-                          {/* Speed Indicator */}
-                          {QuizState.isRacing && horse.speed > 0 && (
-                            <div className="absolute -top-8 left-1/2 transform -translate-x-1/2">
-                              <div className="bg-purple-600 text-white text-xs px-2 py-1 rounded font-bold shadow">
-                                {(horse.speed * 60).toFixed(0)} mph
-                              </div>
-                            </div>
-                          )}
+                        {/* Progress Bar */}
+                        <div className="mt-2">
+                          <Progress
+                            value={Math.min(horse.position, 100)}
+                            className="h-3 bg-gray-200"
+                          />
                         </div>
                       </div>
-                    </div>
-
-                    {/* Progress Bar */}
-                    <div className="mt-2">
-                      <Progress
-                        value={Math.min(horse.position, 100)}
-                        className="h-3 bg-gray-200"
-                      />
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Race Status */}
-            <div className="mt-6 text-center">
-              {QuizState.isRacing ? (
-                <div className="bg-red-500 text-white px-6 py-3 rounded-full font-bold text-lg inline-block shadow-lg animate-pulse">
-                  🏃‍♂️ KNOWLEDGE RACE IN PROGRESS! 🧠
+                    );
+                  })}
                 </div>
-              ) : (
-                <div className="bg-purple-600 text-white px-6 py-3 rounded-full font-bold text-lg inline-block shadow-lg">
-                  🎓 Ready for Quiz Racing! 🏁
+
+                {/* Race Status */}
+                <div className="mt-6 text-center">
+                  {QuizState.isRacing ? (
+                    <div className="bg-red-500 text-white px-6 py-3 rounded-full font-bold text-lg inline-block shadow-lg animate-pulse">
+                      🏃‍♂️ KNOWLEDGE RACE IN PROGRESS! 🧠
+                    </div>
+                  ) : (
+                    <div className="bg-purple-600 text-white px-6 py-3 rounded-full font-bold text-lg inline-block shadow-lg">
+                      🎓 Ready for Quiz Racing! 🏁
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+      )}
+
       {/* Race Results */}
       {QuizState.raceResult && (
         <Card className="bg-gradient-to-r from-yellow-100 via-yellow-200 to-yellow-100 border-yellow-400 shadow-xl my-3">
