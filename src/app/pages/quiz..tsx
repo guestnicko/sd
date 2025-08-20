@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useRef, useState } from "react";
 import { Badge } from "../components/ui/badge";
 import {
@@ -9,6 +10,8 @@ import {
 import sdk from "@farcaster/miniapp-sdk";
 import { Button } from "../components/ui/button";
 import { Progress } from "@radix-ui/react-progress";
+import { Modal, Box, Typography } from "@mui/material";
+
 
 interface Horse {
   id: number;
@@ -104,6 +107,11 @@ type QuizProps = {
   onExit: (state: GameState) => void; // ✅ parent callback
 };
 export default function QuizGame({ onExit, questions }: QuizProps) {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+
   const handleClick = () => {
     onExit("menu");
   };
@@ -687,98 +695,127 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
         </div>
 
       )}
-
+  
       {/* Race Results */}
-      {QuizState.raceResult && (
-        <Card className="bg-gradient-to-r from-yellow-100 via-yellow-200 to-yellow-100 border-yellow-400 shadow-xl my-3">
-          <CardHeader>
-            <CardTitle className="text-2xl text-yellow-800 text-center">
-              🏆 RACE RESULTS & SCORE UPDATE 🏆
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-6">
-              {/* Winner Announcement */}
-              <div className="text-center p-6 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-300 border-4 border-yellow-600 rounded-xl shadow-lg">
-                <h3 className="text-3xl md:text-4xl font-bold text-yellow-900 mb-2">
-                  🎉 WINNER: Option {QuizState.raceResult.winner.answerChoice}{" "}
-                  🎉
-                </h3>
-                <div className="text-xl text-yellow-800">
-                  {QuizState.raceResult.winner.emoji} The Correct Answer!{" "}
-                  {QuizState.raceResult.winner.emoji}
-                </div>
-              </div>
+      <div>
+        <Modal
+          open={!!QuizState.raceResult}
+          onClose={resetGame}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={{
+              position: "absolute" as "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              width: "100%",
+              maxWidth: 800, // increased from 600 → 800
+              bgcolor: "background.paper",
+              border: "3px solid #2eb053",
+              borderRadius: "16px",
+              boxShadow: 24,
+              p: 4,
+              maxHeight: "95vh", // slightly taller
+              overflowY: "auto",
+          }}>
+            
+          {/* Show the Result via Modal */}
+          {QuizState.raceResult && (
+              <Card className="border-green-400 shadow-xl my-3 rounded-2xl bg-green-400">
+                <CardHeader>
+                  <CardTitle className="text-2xl text-yellow-800 text-center">
+                    🏆 RACE RESULTS & SCORE UPDATE 🏆
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-6">
+                    {/* Score Result */}
+                    <div className="text-center p-6 rounded-xl">
+                      {QuizState.lastScore > 0 ? (
+                        <div className="bg-gradient-to-r from-green-200 to-emerald-200 border-green-500 rounded-xl p-4">
+                          <p className="text-3xl font-bold text-green-800 mb-2">
+                            🎊 CORRECT! WELL DONE! 🎊
+                          </p>
+                          <p className="text-xl text-green-700">
+                            +{QuizState.lastScore} points earned! 🌟
+                          </p>
+                          {QuizState.streak > 0 && (
+                            <p className="text-sm text-green-600 mt-2">
+                              🔥 {QuizState.streak} question streak! Keep it up!
+                            </p>
+                          )}
+                        </div>
+                      ) : (
+                        <div className="bg-gradient-to-r from-red-200 to-pink-200 border-red-500 rounded-xl p-4">
+                          <p className="text-xl font-bold text-red-800 mb-2">
+                            📚 Keep Learning!
+                          </p>
+                          <p className="text-lg text-red-700">
+                            {QuizState.lastScore < 0
+                              ? `${QuizState.lastScore} points`
+                              : "No points this time"}
+                          </p>
+                          <p className="text-sm text-red-600 mt-2">
+                            Every question is a learning opportunity! 🧠
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                    {/* Winner Announcement -- Removed since I think its unnecessary */}
+                    {/* <div className="text-center p-6 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-300 border-4 border-yellow-600 rounded-xl shadow-lg">
+                      <h3 className="text-2xl md:text-3xl font-bold text-yellow-900 mb-2">
+                        🎉 WINNER: Option {QuizState.raceResult.winner.answerChoice}{" "}
+                        🎉
+                      </h3>
+                      <div className="text-lg text-yellow-800">
+                        {QuizState.raceResult.winner.emoji} The Correct Answer!{" "}
+                        {QuizState.raceResult.winner.emoji}
+                      </div>
+                    </div> */}
 
-              {/* Correct Answer Display */}
-              {QuizState.currentQuestion && (
-                <div className="bg-green-100 border-2 border-green-400 rounded-lg p-4">
-                  <div className="text-center">
-                    <div className="text-lg font-bold text-green-800 mb-2">
-                      ✅ Correct Answer:{" "}
-                      {
-                        QuizState.currentQuestion.answers[
-                          QuizState.currentQuestion.correctAnswer
-                        ]
-                      }
+                    {/* Correct Answer Display */}
+                    {QuizState.currentQuestion && (
+                      <div className="bg-green-100 border-2 border-green-400 rounded-lg p-4">
+                        <div className="text-center">
+                          <div className="text-lg font-bold text-green-800 mb-2">
+                            ✅ Correct Answer:{" "}
+                            {
+                              QuizState.currentQuestion.answers[
+                                QuizState.currentQuestion.correctAnswer
+                              ]
+                            }
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+
+                    {/* Action Buttons */}
+                    <div className="flex justify-center gap-4">
+                      <Button
+                        onClick={startNewQuestion}
+                        className="h-12 px-8 text-lg font-bold bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 shadow-lg text-white"
+                      >
+                        🎯 Next Question
+                      </Button>
+                      <Button
+                        onClick={resetGame}
+                        variant="outline"
+                        className="h-12 px-6 text-lg font-bold  bg-black border-gray-400 hover:bg-gray-900"
+                      >
+                        🔄 New Game
+                      </Button>
                     </div>
                   </div>
-                </div>
-              )}
+                </CardContent>
+              </Card>
+          )}
 
-              {/* Score Result */}
-              <div className="text-center p-6 rounded-xl border-2 shadow-lg">
-                {QuizState.lastScore > 0 ? (
-                  <div className="bg-gradient-to-r from-green-200 to-emerald-200 border-green-500 rounded-xl p-4">
-                    <p className="text-2xl font-bold text-green-800 mb-2">
-                      🎊 CORRECT! WELL DONE! 🎊
-                    </p>
-                    <p className="text-xl text-green-700">
-                      +{QuizState.lastScore} points earned! 🌟
-                    </p>
-                    {QuizState.streak > 0 && (
-                      <p className="text-sm text-green-600 mt-2">
-                        🔥 {QuizState.streak} question streak! Keep it up!
-                      </p>
-                    )}
-                  </div>
-                ) : (
-                  <div className="bg-gradient-to-r from-red-200 to-pink-200 border-red-500 rounded-xl p-4">
-                    <p className="text-xl font-bold text-red-800 mb-2">
-                      📚 Keep Learning!
-                    </p>
-                    <p className="text-lg text-red-700">
-                      {QuizState.lastScore < 0
-                        ? `${QuizState.lastScore} points`
-                        : "No points this time"}
-                    </p>
-                    <p className="text-sm text-red-600 mt-2">
-                      Every question is a learning opportunity! 🧠
-                    </p>
-                  </div>
-                )}
-              </div>
+          </Box>
+        </Modal>
+      </div>
 
-              {/* Action Buttons */}
-              <div className="flex justify-center gap-4">
-                <Button
-                  onClick={startNewQuestion}
-                  className="h-12 px-8 text-lg font-bold bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 shadow-lg text-white"
-                >
-                  🎯 Next Question
-                </Button>
-                <Button
-                  onClick={resetGame}
-                  variant="outline"
-                  className="h-12 px-6 text-lg font-bold border-2 border-gray-400 hover:bg-gray-100"
-                >
-                  🔄 New Game
-                </Button>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      )}
     </>
   );
 }
