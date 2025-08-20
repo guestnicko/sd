@@ -1,0 +1,39 @@
+[
+  {
+    "id": 15,
+    "category": "Technology",
+    "question": "What does \"CPU\" stand for?",
+    "answers": [
+      "Computer Processing Unit",
+      "Central Processing Unit",
+      "Core Processing Unit",
+      "Central Program Unit"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "Easy",
+    "points": 15
+  },
+  {
+    "id": 16,
+    "category": "Technology",
+    "question": "Who founded Microsoft?",
+    "answers": ["Steve Jobs", "Bill Gates", "Mark Zuckerberg", "Larry Page"],
+    "correctAnswer": 1,
+    "difficulty": "Medium",
+    "points": 20
+  },
+  {
+    "id": 17,
+    "category": "Technology",
+    "question": "What does \"AI\" stand for in technology?",
+    "answers": [
+      "Advanced Intelligence",
+      "Artificial Intelligence",
+      "Automated Intelligence",
+      "Applied Intelligence"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "Easy",
+    "points": 15
+  }
+]

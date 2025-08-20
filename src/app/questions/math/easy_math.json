@@ -1,0 +1,29 @@
+[
+  {
+    "id": 18,
+    "category": "Mathematics",
+    "question": "What is the value of π (pi) approximately?",
+    "answers": ["2.14", "3.14", "4.14", "5.14"],
+    "correctAnswer": 1,
+    "difficulty": "Easy",
+    "points": 15
+  },
+  {
+    "id": 19,
+    "category": "Mathematics",
+    "question": "What is 12 × 12?",
+    "answers": ["124", "144", "154", "164"],
+    "correctAnswer": 1,
+    "difficulty": "Easy",
+    "points": 15
+  },
+  {
+    "id": 20,
+    "category": "Mathematics",
+    "question": "What is the square root of 64?",
+    "answers": ["6", "8", "10", "12"],
+    "correctAnswer": 1,
+    "difficulty": "Medium",
+    "points": 20
+  }
+]

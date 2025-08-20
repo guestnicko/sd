@@ -1,0 +1,227 @@
+[
+  {
+    "id": 1,
+    "category": "World History",
+    "question": "Which empire was ruled by Mansa Musa, one of the wealthiest individuals in history?",
+    "answers": [
+      "Songhai Empire",
+      "Mali Empire",
+      "Ghana Empire",
+      "Benin Kingdom"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "Hard",
+    "points": 30
+  },
+  {
+    "id": 2,
+    "category": "World History",
+    "question": "What was the capital of the Byzantine Empire after the fall of Rome?",
+    "answers": ["Athens", "Rome", "Constantinople", "Alexandria"],
+    "correctAnswer": 2,
+    "difficulty": "Hard",
+    "points": 30
+  },
+  {
+    "id": 3,
+    "category": "World History",
+    "question": "The Treaty of Tordesillas divided the New World between which two countries?",
+    "answers": [
+      "Spain and Portugal",
+      "England and France",
+      "Spain and England",
+      "Portugal and France"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "Hard",
+    "points": 30
+  },
+  {
+    "id": 4,
+    "category": "World History",
+    "question": "The Peloponnesian War was primarily fought between Athens and which other city-state?",
+    "answers": ["Sparta", "Corinth", "Thebes", "Delphi"],
+    "correctAnswer": 0,
+    "difficulty": "Hard",
+    "points": 30
+  },
+  {
+    "id": 5,
+    "category": "World History",
+    "question": "Which Mongol leader established the Yuan Dynasty in China?",
+    "answers": ["Genghis Khan", "Ogedei Khan", "Kublai Khan", "Tamerlane"],
+    "correctAnswer": 2,
+    "difficulty": "Hard",
+    "points": 30
+  },
+  {
+    "id": 6,
+    "category": "World History",
+    "question": "What was the main written language of medieval European scholars before the Renaissance?",
+    "answers": ["Greek", "Latin", "Arabic", "Hebrew"],
+    "correctAnswer": 1,
+    "difficulty": "Hard",
+    "points": 30
+  },
+  {
+    "id": 7,
+    "category": "World History",
+    "question": "Who was the first Holy Roman Emperor, crowned in 800 AD?",
+    "answers": [
+      "Otto I",
+      "Charlemagne",
+      "Frederick Barbarossa",
+      "Louis the Pious"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "Hard",
+    "points": 30
+  },
+  {
+    "id": 8,
+    "category": "World History",
+    "question": "The Opium Wars in the 19th century were fought between China and which country?",
+    "answers": ["France", "Britain", "Portugal", "Russia"],
+    "correctAnswer": 1,
+    "difficulty": "Hard",
+    "points": 30
+  },
+  {
+    "id": 9,
+    "category": "World History",
+    "question": "Who led the Haitian Revolution, which resulted in the first independent Black republic?",
+    "answers": [
+      "Jean-Jacques Dessalines",
+      "Toussaint Louverture",
+      "Henri Christophe",
+      "Marcus Garvey"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "Hard",
+    "points": 30
+  },
+  {
+    "id": 10,
+    "category": "World History",
+    "question": "Which ancient civilization built the city of Machu Picchu?",
+    "answers": ["Aztec", "Inca", "Maya", "Olmec"],
+    "correctAnswer": 1,
+    "difficulty": "Hard",
+    "points": 30
+  },
+  {
+    "id": 11,
+    "category": "World History",
+    "question": "What was the primary cause of the Thirty Years' War in Europe?",
+    "answers": [
+      "Religious conflicts",
+      "Trade disputes",
+      "Territorial expansion",
+      "Succession crisis"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "Hard",
+    "points": 30
+  },
+  {
+    "id": 12,
+    "category": "World History",
+    "question": "Which pharaoh is believed to have built the Great Pyramid of Giza?",
+    "answers": ["Tutankhamun", "Khufu", "Ramses II", "Akhenaten"],
+    "correctAnswer": 1,
+    "difficulty": "Hard",
+    "points": 30
+  },
+  {
+    "id": 13,
+    "category": "World History",
+    "question": "Who was the first European explorer to reach India by sea?",
+    "answers": [
+      "Christopher Columbus",
+      "Ferdinand Magellan",
+      "Vasco da Gama",
+      "Marco Polo"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "Hard",
+    "points": 30
+  },
+  {
+    "id": 14,
+    "category": "World History",
+    "question": "What was the capital city of the Aztec Empire?",
+    "answers": ["Chichen Itza", "Tenochtitlan", "Teotihuacan", "Cusco"],
+    "correctAnswer": 1,
+    "difficulty": "Hard",
+    "points": 30
+  },
+  {
+    "id": 15,
+    "category": "World History",
+    "question": "Which medieval document, signed in 1215, limited the power of the English king?",
+    "answers": [
+      "Bill of Rights",
+      "Petition of Right",
+      "Magna Carta",
+      "Domesday Book"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "Hard",
+    "points": 30
+  },
+  {
+    "id": 16,
+    "category": "World History",
+    "question": "The Punic Wars were fought between Rome and which other ancient civilization?",
+    "answers": ["Egypt", "Carthage", "Macedonia", "Persia"],
+    "correctAnswer": 1,
+    "difficulty": "Hard",
+    "points": 30
+  },
+  {
+    "id": 17,
+    "category": "World History",
+    "question": "Who was the leader of the Soviet Union during World War II?",
+    "answers": [
+      "Vladimir Lenin",
+      "Joseph Stalin",
+      "Leon Trotsky",
+      "Nikita Khrushchev"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "Hard",
+    "points": 30
+  },
+  {
+    "id": 18,
+    "category": "World History",
+    "question": "Which dynasty built most of the Great Wall of China that stands today?",
+    "answers": ["Qin Dynasty", "Han Dynasty", "Ming Dynasty", "Tang Dynasty"],
+    "correctAnswer": 2,
+    "difficulty": "Hard",
+    "points": 30
+  },
+  {
+    "id": 19,
+    "category": "World History",
+    "question": "Which leader is associated with the phrase 'Let them eat cake' during the French Revolution?",
+    "answers": [
+      "Marie Antoinette",
+      "Louis XVI",
+      "Napoleon Bonaparte",
+      "Robespierre"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "Hard",
+    "points": 30
+  },
+  {
+    "id": 20,
+    "category": "World History",
+    "question": "What year did the Berlin Wall fall, marking the symbolic end of the Cold War?",
+    "answers": ["1985", "1987", "1989", "1991"],
+    "correctAnswer": 2,
+    "difficulty": "Hard",
+    "points": 30
+  }
+]
