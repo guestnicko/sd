@@ -11,6 +11,8 @@ import sdk from "@farcaster/miniapp-sdk";
 import { Button } from "../components/ui/button";
 import { Progress } from "@radix-ui/react-progress";
 import { Modal, Box, Typography } from "@mui/material";
+import ResultsSummary from "./quiz_result";
+import { tree } from "next/dist/build/templates/app-page";
 
 interface Horse {
   id: number;
@@ -94,7 +96,7 @@ const HORSES: Horse[] = [
   },
 ];
 
-type GameState = "menu" | "quiz" | "category";
+type GameState = "menu" | "quiz" | "category" | "results";
 
 type QuizProps = {
   questions: Question[]; // ✅ now correctly typed
@@ -146,7 +148,7 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
   const [QuizState, setQuizState] = useState<QuizState>({
     selectedAnswer: null,
     score: 0,
-    totalQuestions: 0,
+    totalQuestions: questions.length,
     correctAnswers: 0,
     currentQuestion: null,
     isRacing: false,
@@ -160,6 +162,10 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
   const [answeredQuestions, setAnsweredQuestions] = useState<number[]>([]);
   const [score, setScore] = useState(0);
   const [streak, setStreak] = useState(0);
+  const [highestStreak, setHighestStreak] = useState(0);
+  const [isFinished, setIsFinished] = useState(false);
+  const [viewResult, setView] = useState(false);
+  const [mistakes, setMistake] = useState<number[]>([]);
 
   const getRandomQuestion = (): Question | null => {
     // Filter only unanswered question indices
@@ -208,29 +214,39 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
     setQuizState((prev) => ({
       ...prev,
       isRacing: true,
-      totalQuestions: prev.totalQuestions + 1,
     }));
     const question = QuizState.currentQuestion;
     let gained = question.points;
     // Determine if answer is correct
-    const isCorrect =
-      QuizState.selectedAnswer === QuizState.currentQuestion.correctAnswer;
+    const isCorrect = QuizState.selectedAnswer === question.correctAnswer;
 
     if (isCorrect && question) {
+      setAnsweredQuestions((prev) => [...prev, question.id]);
+      console.log("the answer is correct");
+      console.log(QuizState.totalQuestions);
+      console.log(answeredQuestions);
+
+      if (QuizState.totalQuestions == answeredQuestions.length + 1) {
+        setIsFinished(true);
+      }
       const newStreak = streak + 1;
       setStreak(newStreak);
-      setAnsweredQuestions((prev) => [...prev, question.id]);
       if (newStreak >= 3) {
         const bonus = Math.floor(newStreak / 3) * 10; // +10 for every 3 in a row
         gained += bonus;
       }
     } else {
       // Wrong answer
+      if (!mistakes.includes(question.id)) {
+        setMistake((prev) => [...prev, question.id]);
+      }
       gained = -5;
       setStreak(0);
     }
     setScore((prev) => Math.max(0, prev + gained));
-
+    if (highestStreak < streak) {
+      setHighestStreak(streak);
+    }
     // Set horse speeds - correct answer horse gets advantage
     const raceHorses = horses.map((horse, index) => {
       let speed;
@@ -347,6 +363,21 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
     });
   };
 
+  const checkResult = (): void => {
+    setView(true);
+    setQuizState({
+      selectedAnswer: null,
+      score: 0,
+      totalQuestions: QuizState.totalQuestions,
+      correctAnswers: QuizState.totalQuestions - mistakes.length,
+      currentQuestion: null,
+      isRacing: false,
+      raceResult: null,
+      lastScore: 0,
+      streak: 0,
+    });
+  };
+
   useEffect(() => {
     // Load first question on mount
     if (!QuizState.currentQuestion) {
@@ -412,7 +443,9 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
             {answeredQuestions.length + "/" + questions.length}
           </Badge>
           <div className="flex gap-3">
-            <Badge className={` px-4 py-2 `}>Streak: {streak}</Badge>
+            <Badge className={` px-4 py-2 `}> Highest Streak: {streak}</Badge>
+
+            <Badge className={` px-4 py-2 `}>Current Streak: {streak}</Badge>
             <Badge className={` px-4 py-2 `}>
               Total Points Scored: {score}
             </Badge>
@@ -825,19 +858,34 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
 
                     {/* Action Buttons */}
                     <div className="flex justify-center gap-4">
-                      <Button
-                        onClick={startNewQuestion}
-                        className="h-12 px-8 text-lg font-bold bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 shadow-lg text-white"
-                      >
-                        🎯 Next Question
-                      </Button>
-                      <Button
-                        onClick={resetGame}
-                        variant="outline"
-                        className="h-12 px-6 text-lg font-bold  bg-black border-gray-400 hover:bg-gray-900"
-                      >
-                        🔄 New Game
-                      </Button>
+                      {!isFinished && (
+                        <>
+                          <Button
+                            onClick={startNewQuestion}
+                            className="h-12 px-8 text-lg font-bold bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 shadow-lg text-white"
+                          >
+                            🎯 Next Question
+                          </Button>
+                          <Button
+                            onClick={resetGame}
+                            variant="outline"
+                            className="h-12 px-6 text-lg font-bold  bg-black border-gray-400 hover:bg-gray-900"
+                          >
+                            🔄 New Game
+                          </Button>
+                        </>
+                      )}
+                      {isFinished && (
+                        <>
+                          <Button
+                            onClick={checkResult}
+                            variant="outline"
+                            className="h-12 px-6 text-lg font-bold  bg-black border-gray-400 hover:bg-gray-900"
+                          >
+                            Check Result
+                          </Button>{" "}
+                        </>
+                      )}
                     </div>
                   </div>
                 </CardContent>
@@ -846,6 +894,15 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
           </Box>
         </Modal>
       </div>
+      {/* Final Quiz Result */}
+      {viewResult && (
+        <ResultsSummary
+          score={score}
+          correctAnswers={QuizState.correctAnswers}
+          totalQuestions={questions.length}
+          streak={streak}
+        />
+      )}
     </>
   );
 }
