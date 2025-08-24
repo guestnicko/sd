@@ -100,13 +100,12 @@ type GameState = "menu" | "quiz" | "category" | "results";
 
 type QuizProps = {
   questions: Question[]; // ✅ now correctly typed
-  onExit: (state: "menu" | "quiz" | "category") => void;
-  onFinish: (quizState : QuizState) => void; // ✅ parent callback
+  onExit: (state: GameState) => void; // ✅ parent callback
 };
-export default function QuizGame({ onFinish, questions, onExit }: QuizProps) {
+export default function QuizGame({ onExit, questions }: QuizProps) {
   const handleClick = () => {
-    onExit("menu")
-  }
+    onExit("menu");
+  };
   const QUESTIONS = questions;
 
   useEffect(() => {
@@ -365,17 +364,17 @@ export default function QuizGame({ onFinish, questions, onExit }: QuizProps) {
   };
 
   const checkResult = (): void => {
-    console.log(QuizState)
-    onFinish({
+    setView(true);
+    setQuizState({
       selectedAnswer: null,
-      score: QuizState.lastScore,
+      score: 0,
       totalQuestions: QuizState.totalQuestions,
       correctAnswers: QuizState.totalQuestions - mistakes.length,
       currentQuestion: null,
       isRacing: false,
       raceResult: null,
-      lastScore: QuizState.score,
-      streak: QuizState.streak,
+      lastScore: 0,
+      streak: 0,
     });
   };
 
