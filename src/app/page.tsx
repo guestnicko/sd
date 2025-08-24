@@ -12,6 +12,7 @@ import CategoryMenu from "./pages/choose_category";
 import easy_science from "./questions/science/easy_science.json";
 import easy_math from "./questions/math/easy_math.json";
 import easy_history from "./questions/history/easy_history.json";
+import ResultsSummary from "./pages/quiz_result";
 
 type GameState = "menu" | "quiz" | "category" | "results";
 type QuizCategory = "Science" | "Math" | "History" | "exit";
@@ -26,10 +27,59 @@ interface Question {
   isAnswered: boolean;
 }
 
+interface Question {
+  id: number;
+  category: string;
+  question: string;
+  answers: string[];
+  correctAnswer: number;
+  difficulty: string;
+  points: number;
+  isAnswered: boolean;
+}
+
+interface RaceResult {
+  winner: Horse;
+  positions: Horse[];
+}
+
+interface Horse {
+  id: number;
+  name: string;
+  color: string;
+  secondaryColor: string;
+  answerChoice: string;
+  speed: number;
+  position: number;
+  emoji: string;
+}
+
+interface QuizState {
+  selectedAnswer: number | null;
+  score: number;
+  totalQuestions: number;
+  correctAnswers: number;
+  currentQuestion: Question | null;
+  isRacing: boolean;
+  raceResult: RaceResult | null;
+  lastScore: number;
+  streak: number;
+}
+
 export default function QuizRacingGame(): JSX.Element {
   const [gameState, setGameState] = useState<GameState>("menu");
   const [quizCategory, setQuizCategory] = useState<QuizCategory>("Science");
-
+  const [quizState, setQuizState] = useState<QuizState>({
+    selectedAnswer: 0,
+    score: 0,
+    totalQuestions: 0,
+    correctAnswers: 0,
+    isRacing: false,
+    lastScore: 0,
+    streak: 0,
+    raceResult: null,
+    currentQuestion: null,
+  });
   const questionBank: Record<string, Question[]> = {
     Science: easy_science,
     Math: easy_math,
@@ -187,7 +237,11 @@ export default function QuizRacingGame(): JSX.Element {
         {gameState === "quiz" && (
           <QuizGame
             questions={questionBank[quizCategory]}
-            onExit={(state) => setGameState(state)}
+            onFinish={(quizState) => {
+              setQuizState(quizState);
+              setGameState("results");
+            }}
+            onExit={(state : GameState)=> setGameState(state)}
           />
         )}
         {gameState === "category" && (
@@ -200,6 +254,13 @@ export default function QuizRacingGame(): JSX.Element {
                 setGameState("quiz");
               }
             }}
+          />
+        )}
+
+        {gameState === "results" && (
+          <ResultsSummary
+            lastQuiz={quizState}
+            onExit={(state) => setGameState(state)}
           />
         )}
       </main>
