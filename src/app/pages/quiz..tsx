@@ -10,9 +10,7 @@ import {
 import sdk from "@farcaster/miniapp-sdk";
 import { Button } from "../components/ui/button";
 import { Progress } from "@radix-ui/react-progress";
-import { Modal, Box, Typography } from "@mui/material";
-import ResultsSummary from "./quiz_result";
-import { tree } from "next/dist/build/templates/app-page";
+import { Modal, Box } from "@mui/material";
 
 interface Horse {
   id: number;
@@ -33,7 +31,6 @@ interface Question {
   correctAnswer: number;
   difficulty: string;
   points: number;
-  isAnswered: boolean;
 }
 
 interface RaceResult {
@@ -100,13 +97,19 @@ type GameState = "menu" | "quiz" | "category" | "results";
 
 type QuizProps = {
   questions: Question[]; // ✅ now correctly typed
-  onExit: (state: GameState) => void; // ✅ parent callback
+  onExit: (state: "menu" | "quiz" | "category") => void;
+  onFinish: (quizState: QuizState) => void; // ✅ parent callback
+
 };
 export default function QuizGame({ onExit, questions }: QuizProps) {
   const handleClick = () => {
     onExit("menu");
   };
   const QUESTIONS = questions;
+
+  useEffect(() => {
+    console.log("Received questions in QuizGame:", questions);
+  }, [questions]);
 
   useEffect(() => {
     const initializeFarcaster = async () => {
@@ -164,7 +167,6 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
   const [streak, setStreak] = useState(0);
   const [highestStreak, setHighestStreak] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
-  const [viewResult, setView] = useState(false);
   const [mistakes, setMistake] = useState<number[]>([]);
 
   const getRandomQuestion = (): Question | null => {
@@ -364,17 +366,18 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
   };
 
   const checkResult = (): void => {
-    setView(true);
-    setQuizState({
+    onFinish({
       selectedAnswer: null,
-      score: 0,
+      score: score,
+
       totalQuestions: QuizState.totalQuestions,
       correctAnswers: QuizState.totalQuestions - mistakes.length,
       currentQuestion: null,
       isRacing: false,
       raceResult: null,
-      lastScore: 0,
-      streak: 0,
+      lastScore: QuizState.score,
+      streak: Math.max(highestStreak, streak),
+
     });
   };
 
@@ -435,8 +438,15 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
           ⬅️ Main Menu
         </Button>
       </div>
+      {!QUESTIONS ||
+        (QUESTIONS.length === 0 && (
+          <div className="text-center text-red-500 font-bold mt-8">
+            ⚠️ No questions loaded. Please go back and select a valid category &
+            difficulty.
+          </div>
+        ))}
       {/* Question Card */}
-      {QuizState && (
+      {QUESTIONS.length > 0 && QuizState && (
         <div className="flex items-center justify-between mb-4 my-3">
           <Badge className={` px-4 py-2 `}>
             Questions Answered:{" "}
@@ -771,7 +781,7 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
         >
           <Box
             sx={{
-              position: "absolute" as "absolute",
+              position: "absolute" as "Absolute",
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%)",
@@ -828,17 +838,6 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
                         </div>
                       )}
                     </div>
-                    {/* Winner Announcement -- Removed since I think its unnecessary */}
-                    {/* <div className="text-center p-6 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-300 border-4 border-yellow-600 rounded-xl shadow-lg">
-                      <h3 className="text-2xl md:text-3xl font-bold text-yellow-900 mb-2">
-                        🎉 WINNER: Option {QuizState.raceResult.winner.answerChoice}{" "}
-                        🎉
-                      </h3>
-                      <div className="text-lg text-yellow-800">
-                        {QuizState.raceResult.winner.emoji} The Correct Answer!{" "}
-                        {QuizState.raceResult.winner.emoji}
-                      </div>
-                    </div> */}
 
                     {/* Correct Answer Display */}
                     {QuizState.currentQuestion && (
@@ -894,15 +893,6 @@ export default function QuizGame({ onExit, questions }: QuizProps) {
           </Box>
         </Modal>
       </div>
-      {/* Final Quiz Result */}
-      {viewResult && (
-        <ResultsSummary
-          score={score}
-          correctAnswers={QuizState.correctAnswers}
-          totalQuestions={questions.length}
-          streak={streak}
-        />
-      )}
     </>
   );
 }
