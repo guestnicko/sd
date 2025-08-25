@@ -8,5 +8,45 @@
     "difficulty": "Easy",
     "points": 15,
     "isAnswered": false
+  },
+  {
+    "id": 2,
+    "category": "Science",
+    "question": "What gas do humans need to breathe in order to survive?",
+    "answers": ["Carbon Dioxide", "Oxygen", "Nitrogen", "Helium"],
+    "correctAnswer": 1,
+    "difficulty": "Easy",
+    "points": 15,
+    "isAnswered": false
+  },
+  {
+    "id": 3,
+    "category": "Science",
+    "question": "What is H2O more commonly known as?",
+    "answers": ["Hydrogen", "Salt", "Water", "Oxygen"],
+    "correctAnswer": 2,
+    "difficulty": "Easy",
+    "points": 15,
+    "isAnswered": false
+  },
+  {
+    "id": 4,
+    "category": "Science",
+    "question": "Which organ pumps blood through the human body?",
+    "answers": ["Lungs", "Heart", "Kidneys", "Stomach"],
+    "correctAnswer": 1,
+    "difficulty": "Easy",
+    "points": 15,
+    "isAnswered": false
+  },
+  {
+    "id": 5,
+    "category": "Science",
+    "question": "Which planet is the closest to the Sun?",
+    "answers": ["Mercury", "Venus", "Earth", "Mars"],
+    "correctAnswer": 0,
+    "difficulty": "Easy",
+    "points": 15,
+    "isAnswered": false
   }
 ]

@@ -110,6 +110,10 @@ export default function QuizGame({ onFinish, questions, onExit }: QuizProps) {
   const QUESTIONS = questions;
 
   useEffect(() => {
+  console.log("Received questions in QuizGame:", questions);
+}, [questions]);
+  
+  useEffect(() => {
     const initializeFarcaster = async () => {
       try {
         await new Promise((resolve) => setTimeout(resolve, 100));
@@ -368,14 +372,14 @@ export default function QuizGame({ onFinish, questions, onExit }: QuizProps) {
     console.log(QuizState)
     onFinish({
       selectedAnswer: null,
-      score: QuizState.lastScore,
+      score: score,
       totalQuestions: QuizState.totalQuestions,
       correctAnswers: QuizState.totalQuestions - mistakes.length,
       currentQuestion: null,
       isRacing: false,
       raceResult: null,
       lastScore: QuizState.score,
-      streak: QuizState.streak,
+      streak: Math.max(highestStreak,streak),
     });
   };
 
@@ -436,8 +440,15 @@ export default function QuizGame({ onFinish, questions, onExit }: QuizProps) {
           ⬅️ Main Menu
         </Button>
       </div>
+      
+      { !QUESTIONS || QUESTIONS.length === 0 && (
+          <div className="text-center text-red-500 font-bold mt-8">
+            ⚠️ No questions loaded. Please go back and select a valid category & difficulty.
+          </div>
+      )}
+
       {/* Question Card */}
-      {QuizState && (
+      { QUESTIONS.length > 0 && QuizState && (
         <div className="flex items-center justify-between mb-4 my-3">
           <Badge className={` px-4 py-2 `}>
             Questions Answered:{" "}
