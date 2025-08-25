@@ -99,8 +99,9 @@ type QuizProps = {
   questions: Question[]; // ✅ now correctly typed
   onExit: (state: "menu" | "quiz" | "category") => void;
   onFinish: (quizState: QuizState) => void; // ✅ parent callback
+
 };
-export default function QuizGame({ onFinish, questions, onExit }: QuizProps) {
+export default function QuizGame({ onExit, questions }: QuizProps) {
   const handleClick = () => {
     onExit("menu");
   };
@@ -365,10 +366,10 @@ export default function QuizGame({ onFinish, questions, onExit }: QuizProps) {
   };
 
   const checkResult = (): void => {
-    console.log(QuizState);
     onFinish({
       selectedAnswer: null,
       score: score,
+
       totalQuestions: QuizState.totalQuestions,
       correctAnswers: QuizState.totalQuestions - mistakes.length,
       currentQuestion: null,
@@ -376,6 +377,7 @@ export default function QuizGame({ onFinish, questions, onExit }: QuizProps) {
       raceResult: null,
       lastScore: QuizState.score,
       streak: Math.max(highestStreak, streak),
+
     });
   };
 

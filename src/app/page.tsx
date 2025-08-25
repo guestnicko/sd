@@ -22,6 +22,7 @@ import hard_history from "./questions/history/hard_history.json";
 
 import ResultsSummary from "./pages/quiz_result";
 
+
 type GameState = "menu" | "quiz" | "category" | "results";
 interface QuizCategory {
   category: Category;
@@ -264,6 +265,7 @@ export default function QuizRacingGame(): JSX.Element {
               setGameState("results");
             }}
             onExit={(state: GameState) => setGameState(state)}
+
           />
         )}
         {gameState === "category" && (
@@ -279,13 +281,6 @@ export default function QuizRacingGame(): JSX.Element {
                 setGameState("quiz");
               }
             }}
-          />
-        )}
-
-        {gameState === "results" && (
-          <ResultsSummary
-            lastQuiz={quizState}
-            onExit={(state) => setGameState(state)}
           />
         )}
       </main>
