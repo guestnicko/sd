@@ -1,9 +1,8 @@
 "use client";
 
 import { useState, useEffect, JSX } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "./components/ui/card";
+import { Card, CardHeader, CardTitle } from "./components/ui/card";
 // Added guide component
-import Guide from "./components/ui/guide";
 
 import { sdk } from "@farcaster/miniapp-sdk";
 import QuizGame from "./pages/quiz.";
@@ -27,7 +26,7 @@ type GameState = "menu" | "quiz" | "category" | "results";
 interface QuizCategory {
   category: Category;
   difficulty: Difficulty;
-};
+}
 
 interface Question {
   id: number;
@@ -37,7 +36,6 @@ interface Question {
   correctAnswer: number;
   difficulty: string;
   points: number;
-  isAnswered: boolean;
 }
 
 interface RaceResult {
@@ -74,8 +72,8 @@ export default function QuizRacingGame(): JSX.Element {
   const [gameState, setGameState] = useState<GameState>("menu");
   const [quizCategory, setQuizCategory] = useState<QuizCategory>({
     category: "Science",
-    difficulty: "Easy"
-  })
+    difficulty: "Easy",
+  });
   const [quizState, setQuizState] = useState<QuizState>({
     selectedAnswer: 0,
     score: 0,
@@ -87,28 +85,29 @@ export default function QuizRacingGame(): JSX.Element {
     raceResult: null,
     currentQuestion: null,
   });
-  const questionBank:  Record<Category, Record<Difficulty, Question[]>> = {
+  const questionBank: Record<Category, Record<Difficulty, Question[]>> = {
     Science: {
-    Easy: easy_science,
-    Medium: medium_science,
-    Hard: hard_science
-  },
-  Math: {
-    Easy: easy_math,
-    Medium: medium_math,
-    Hard: hard_math
-  },
-  History: {
-    Easy: easy_history,
-    Medium: medium_history,
-    Hard: hard_history
-  }
+      Easy: easy_science,
+      Medium: medium_science,
+      Hard: hard_science,
+    },
+    Math: {
+      Easy: easy_math,
+      Medium: medium_math,
+      Hard: hard_math,
+    },
+    History: {
+      Easy: easy_history,
+      Medium: medium_history,
+      Hard: hard_history,
+    },
   };
-  const selectedQuestions = questionBank[quizCategory.category]?.[quizCategory.difficulty] || [];
-  useEffect(()=> {
-    console.log(quizCategory)
-    console.log(questionBank)
-  }, [quizCategory])
+  const selectedQuestions =
+    questionBank[quizCategory.category]?.[quizCategory.difficulty] || [];
+  useEffect(() => {
+    console.log(quizCategory);
+    console.log(questionBank);
+  }, [quizCategory]);
   useEffect(() => {
     const initializeFarcaster = async () => {
       try {
@@ -264,18 +263,18 @@ export default function QuizRacingGame(): JSX.Element {
               setQuizState(quizState);
               setGameState("results");
             }}
-            onExit={(state : GameState)=> setGameState(state)}
+            onExit={(state: GameState) => setGameState(state)}
           />
         )}
         {gameState === "category" && (
-         <CategoryMenu
+          <CategoryMenu
             onSelect={(category, difficulty) => {
               if (category === "exit") {
                 setGameState("menu");
               } else {
                 setQuizCategory({
                   category: category as Category, // optional cast if using types
-                  difficulty: difficulty as Difficulty
+                  difficulty: difficulty as Difficulty,
                 });
                 setGameState("quiz");
               }
